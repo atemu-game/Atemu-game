@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TcgEngine.Client;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Profiling;
@@ -67,6 +68,8 @@ namespace TcgEngine.Gameplay
         {
             game_data = game;
             resolve_queue = new ResolveQueue(game, false);
+            Debug.Log("Set game logic");
+
         }
 
         public virtual void SetData(Game game)
@@ -84,12 +87,14 @@ namespace TcgEngine.Gameplay
 
         public virtual void StartGame()
         {
+            Debug.Log("start game");
             if (game_data.state == GameState.GameEnded)
                 return;
 
             //Choose first player
             game_data.state = GameState.Play;
-            game_data.first_player = random.NextDouble() < 0.5 ? 0 : 1;
+            // game_data.first_player = random.NextDouble() < 0.5 ? 0 : 1;
+            game_data.first_player = 1;
             game_data.current_player = game_data.first_player;
             game_data.turn_count = 1;
 
@@ -114,18 +119,18 @@ namespace TcgEngine.Gameplay
                 player.hp_max = pdeck != null ? pdeck.start_hp : GameplayData.Get().hp_start;
                 player.hp = player.hp_max;
                 player.mana_max = pdeck != null ? pdeck.start_mana : GameplayData.Get().mana_start;
-                player.mana = player.mana_max;
-
+                // player.mana = player.mana_max;
+                player.mana = 10;
                 //Draw starting cards
                 int dcards = pdeck != null ? pdeck.start_cards : GameplayData.Get().cards_start;
                 DrawCard(player, dcards, CardType.Character);
                 //Add coin second player
                 bool is_random = level == null || level.first_player == LevelFirst.Random;
-                if (is_random && player.player_id != game_data.first_player && GameplayData.Get().second_bonus != null)
-                {
-                    Card card = Card.Create(GameplayData.Get().second_bonus, VariantData.GetDefault(), player);
-                    player.cards_hand.Add(card);
-                }
+                // if (is_random && player.player_id != game_data.first_player && GameplayData.Get().second_bonus != null)
+                // {
+                //     Card card = Card.Create(GameplayData.Get().second_bonus, VariantData.GetDefault(), player);
+                //     player.cards_hand.Add(card);
+                // }
             }
 
             //Start state
@@ -149,17 +154,17 @@ namespace TcgEngine.Gameplay
 
             Player player = game_data.GetActivePlayer();
 
-            // //Cards draw
-            // if (game_data.turn_count > 1 || player.player_id != game_data.first_player)
-            // {
-            //     DrawCard(player, GameplayData.Get().cards_per_turn);
-            //     // DrawMonsterCard(player, GameplayData.Get().cards_per_turn);
-            // }
+            //Cards draw
+            if (game_data.turn_count > 1 || player.player_id != game_data.first_player)
+            {
+                DrawCard(player, GameplayData.Get().cards_per_turn);
+                // DrawMonsterCard(player, GameplayData.Get().cards_per_turn);
+            }
 
-            //Mana 
-            // player.mana_max += GameplayData.Get().mana_per_turn;
-            // player.mana_max = Mathf.Min(player.mana_max, GameplayData.Get().mana_max);
-            // player.mana = player.mana_max;
+            // Mana 
+            player.mana_max = 10;
+            player.mana_max = Mathf.Min(player.mana_max, GameplayData.Get().mana_max);
+            player.mana = player.mana_max;
 
             //Turn timer and history
             game_data.turn_timer = GameplayData.Get().turn_duration;
@@ -202,23 +207,21 @@ namespace TcgEngine.Gameplay
             // game_data.phase = GamePhase.StartTurn;
             // onTurnStart?.Invoke();
             // RefreshData();
-            // Player player = game_data.GetActivePlayer();
-            // game_data.current_player = player.player_id;
+
             // foreach (Player player in game_data.players)
             // {
-            //     Player player = game_data.GetActivePlayer();
-            //     game_data.current_player = player.player_id;
+            //     // game_data.current_player = player.player_id;
             //     // //Cards draw
-            //     // if (game_data.turn_count > 1 || player.player_id != game_data.first_player)
-            //     // {
-            //     //     DrawCard(player, GameplayData.Get().cards_per_turn);
-            //     //     // DrawMonsterCard(player, GameplayData.Get().cards_per_turn);
-            //     // }
+            //     if (game_data.turn_count > 1 || player.player_id != game_data.first_player)
+            //     {
+            //         DrawCard(player, GameplayData.Get().cards_per_turn, CardType.Character);
+            //         // DrawMonsterCard(player, GameplayData.Get().cards_per_turn);
+            //     }
 
-            //     //Mana 
-            //     // player.mana_max = 10;
-            //     // player.mana_max = Mathf.Min(player.mana_max, GameplayData.Get().mana_max);
-            //     // player.mana = player.mana_max;
+            //     // Mana 
+            //     player.mana_max = 10;
+            //     player.mana_max = Mathf.Min(player.mana_max, GameplayData.Get().mana_max);
+            //     player.mana = player.mana_max;
 
             //     //Turn timer and history
             //     game_data.turn_timer = GameplayData.Get().turn_duration;
@@ -258,7 +261,6 @@ namespace TcgEngine.Gameplay
         {
             if (game_data.state == GameState.GameEnded)
                 return;
-
             ClearTurnData();
             game_data.phase = GamePhase.StartTurn;
             onTurnStart?.Invoke();
@@ -311,17 +313,19 @@ namespace TcgEngine.Gameplay
         {
             if (game_data.state == GameState.GameEnded)
                 return;
-
+            Debug.Log("turn " + game_data.turn_count);
             // game_data.current_player = (game_data.current_player + 1) % game_data.settings.nb_players;
+            if (game_data.turn_count == 1) StartAddEquipmentTurn();
 
             // if (game_data.current_player == game_data.first_player)
-            if (game_data.turn_count == 1) StartAddEquipmentTurn();
             game_data.turn_count++;
 
             CheckForWinner();
             // StartTurn();
 
         }
+
+
 
         public virtual void StartMainPhase()
         {
@@ -335,20 +339,20 @@ namespace TcgEngine.Gameplay
 
         public virtual void EndTurn()
         {
+
             if (game_data.state == GameState.GameEnded)
                 return;
             if (game_data.phase != GamePhase.Main)
                 return;
 
             Player player = game_data.GetActivePlayer();
+            Debug.Log(player.username + " " + player.player_id + " " + player.isFinishSettingUp() + GameClient.Get().GetPlayerID());
+
             player.set_up_finish = true;
-            game_data.current_player = (game_data.current_player + 1) % game_data.settings.nb_players;
 
             game_data.selector = SelectorType.None;
-            // game_data.phase = GamePhase.EndTurn;
-            Debug.Log(player.username + " " + player.isFinishSettingUp());
+            game_data.phase = GamePhase.EndTurn;
 
-            bool allSettingUp = true;
             //Reduce status effects with duration
             foreach (Player aplayer in game_data.players)
             {
@@ -357,17 +361,18 @@ namespace TcgEngine.Gameplay
                     card.ReduceStatusDurations();
                 foreach (Card card in aplayer.cards_equip)
                     card.ReduceStatusDurations();
-                if (!aplayer.isFinishSettingUp()) allSettingUp = false;
             }
 
             //End of turn abilities
             // TriggerPlayerCardsAbilityType(player, AbilityTrigger.EndOfTurn);
-
+            Player opPlayer = game_data.GetOpponentPlayer(player.player_id);
             onTurnEnd?.Invoke();
             RefreshData();
-            if (allSettingUp)
+            if (opPlayer.set_up_finish)
                 resolve_queue.AddCallback(StartNextTurn);
+
             resolve_queue.ResolveAll(0.2f);
+
         }
 
         //End game with winner
