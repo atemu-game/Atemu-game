@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843a21f7f6f205741a0a7341aec8e84d, type: 3}
+  m_Name: Equipment1
+  m_EditorClassIdentifier: 
+  id: equipment_1
+  title: 
+  art_full: {fileID: 21300000, guid: ed86b03374ad5a04d8de2f3a5b0a2708, type: 3}
+  art_board: {fileID: 21300000, guid: b0c5e3d6bdb4fb346bb427d202b2a14b, type: 3}
+  type: 50
+  team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
+  rarity: {fileID: 11400000, guid: fab1a52f5a36cc942985dea95be18ac9, type: 2}
+  mana: 0
+  attack: 0
+  hp: 1
+  traits: []
+  stats: []
+  abilities:
+  - {fileID: 11400000, guid: 97e3da8448736644bb1bd777d85d7ff7, type: 2}
+  - {fileID: 11400000, guid: 608d12400d5c82e4fa03fad1361cb2aa, type: 2}
+  text: 
+  desc: 
+  spawn_fx: {fileID: 0}
+  death_fx: {fileID: 0}
+  attack_fx: {fileID: 0}
+  damage_fx: {fileID: 0}
+  idle_fx: {fileID: 0}
+  spawn_audio: {fileID: 0}
+  death_audio: {fileID: 0}
+  attack_audio: {fileID: 0}
+  damage_audio: {fileID: 0}
+  deckbuilding: 1
+  cost: 100
+  packs: []
