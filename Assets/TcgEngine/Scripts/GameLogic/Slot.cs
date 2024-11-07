@@ -17,7 +17,7 @@ namespace TcgEngine
         public int p; //0 or 1, represent player ID
 
         public static int x_min = 1; //Dont change this, should start at 1  (0,0,0 represent invalid slot)
-        public static int x_max = 3; //Number of slots in a row/zone
+        public static int x_max = 5; //Number of slots in a row/zone
 
         public static int y_min = 1; //Dont change this, should start at 1  (0,0,0 represent invalid slot)
         public static int y_max = 1; //Set this to the number of rows/locations you want to have
@@ -92,7 +92,7 @@ namespace TcgEngine
 
         public static int MaxP
         {
-            get { return ignore_p ? 0 : 1; }
+            get { return ignore_p ? 0 : 1; } 
         }
 
         //Return slot P-value of player, usually its same as player_id, unless we ignore P value then its 0 for all
@@ -117,8 +117,8 @@ namespace TcgEngine
                 return new Slot(rand.Next(x_min, x_max + 1), rand.Next(y_min, y_max + 1), rand.Next(0, 2));
             return new Slot(rand.Next(x_min, x_max + 1), y_min, rand.Next(0, 2));
         }
-
-        public static Slot Get(int x, int y, int p)
+		
+		public static Slot Get(int x, int y, int p)
         {
             List<Slot> slots = GetAll();
             foreach (Slot slot in slots)

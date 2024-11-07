@@ -20,7 +20,6 @@ namespace TcgEngine
 
         public bool connected = false; //Connected to server and game
         public bool ready = false;     //Sent all player data, ready to play
-        public bool set_up_finish = false;     //Sent all player data, ready to play
 
         public int hp;
         public int hp_max;
@@ -50,8 +49,6 @@ namespace TcgEngine
         public Player(int id) { this.player_id = id; }
 
         public bool IsReady() { return ready && cards_all.Count > 0; }
-        public bool isFinishSettingUp() { return set_up_finish; }
-
         public bool IsConnected() { return connected || is_ai; }
 
         public virtual void ClearOngoing() { ongoing_status.Clear(); ongoing_traits.Clear(); }
@@ -77,7 +74,6 @@ namespace TcgEngine
             cards_discard.Remove(card);
             cards_secret.Remove(card);
             cards_temp.Remove(card);
-
             UnequipFromAllCards(card);
         }
 
@@ -591,8 +587,8 @@ namespace TcgEngine
 
             Card.CloneNull(source.hero, ref dest.hero);
             Card.CloneDict(source.cards_all, dest.cards_all);
-            Card.CloneListRef(dest.cards_all, source.cards_board, dest.cards_board);
-            Card.CloneListRef(dest.cards_all, source.cards_equip, dest.cards_equip);
+            Card.CloneListRef(dest.cards_all, source.cards_board, dest.cards_board);  
+            Card.CloneListRef(dest.cards_all, source.cards_equip, dest.cards_equip);  
             Card.CloneListRef(dest.cards_all, source.cards_hand, dest.cards_hand);
             Card.CloneListRef(dest.cards_all, source.cards_deck, dest.cards_deck);
             Card.CloneListRef(dest.cards_all, source.cards_discard, dest.cards_discard);

@@ -35,7 +35,7 @@ namespace TcgEngine
             int count = 0;
             if (target == ConditionPlayerType.Self || target == ConditionPlayerType.Both)
             {
-                Player player = data.GetPlayer(caster.player_id);
+                Player player =  data.GetPlayer(caster.player_id);
                 count += CountPile(player, pile);
             }
             if (target == ConditionPlayerType.Opponent || target == ConditionPlayerType.Both)

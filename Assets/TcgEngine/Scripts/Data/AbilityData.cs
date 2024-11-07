@@ -199,7 +199,7 @@ namespace TcgEngine
 
         public void DoEffects(GameLogic logic, Card caster)
         {
-            foreach (EffectData effect in effects)
+            foreach(EffectData effect in effects)
                 effect?.DoEffect(logic, this, caster);
         }
 
@@ -207,7 +207,7 @@ namespace TcgEngine
         {
             foreach (EffectData effect in effects)
                 effect?.DoEffect(logic, this, caster, target);
-            foreach (StatusData stat in status)
+            foreach(StatusData stat in status)
                 target.AddStatus(stat, value, duration);
         }
 
@@ -386,7 +386,7 @@ namespace TcgEngine
                     if (target != null && AreTargetConditionsMet(data, caster, target))
                         targets.Add(target);
                 }
-                else if (caster.equipped_uid != null)
+                else if(caster.equipped_uid != null)
                 {
                     //Get equipped card
                     Card target = data.GetCard(caster.equipped_uid);
@@ -439,7 +439,7 @@ namespace TcgEngine
                     if (AreTargetConditionsMet(data, caster, player))
                         targets.Add(player);
                 }
-
+                
             }
 
             //Filter targets
@@ -540,7 +540,7 @@ namespace TcgEngine
             {
                 foreach (AbilityData choice in chain_abilities)
                 {
-                    if (choice.AreTriggerConditionsMet(game_data, caster))
+                    if(choice.AreTriggerConditionsMet(game_data, caster))
                         return true;
                 }
                 return false;

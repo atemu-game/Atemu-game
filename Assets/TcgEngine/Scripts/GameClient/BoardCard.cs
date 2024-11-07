@@ -450,7 +450,7 @@ namespace TcgEngine.Client
                 return GetEquipCard();
             return GetCard();
         }
-
+        
         public CardData GetCardData()
         {
             Card card = GetCard();

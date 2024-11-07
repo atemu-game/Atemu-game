@@ -10,7 +10,7 @@ namespace TcgEngine.Client
     /// Represents the visual deck on the board
     /// Will show number of cards in deck/discard when hovering
     /// </summary>
-
+    
     public class BoardDeck : MonoBehaviour
     {
         public bool opponent;
@@ -20,7 +20,7 @@ namespace TcgEngine.Client
         public Text discard_value;
 
         private bool hover = false;
-
+        
         void Start()
         {
             if (GameTool.IsMobile())
@@ -67,7 +67,7 @@ namespace TcgEngine.Client
 
         private void ShowHover(bool hover)
         {
-            if (!GameTool.IsMobile())
+            if(!GameTool.IsMobile())
                 hover_panel?.SetVisible(hover);
         }
 
@@ -94,7 +94,7 @@ namespace TcgEngine.Client
         {
             if (!opponent && Input.GetMouseButtonDown(0))
                 ShowDeckCards(); //Cannot see opponent deck
-            else if (Input.GetMouseButtonDown(1))
+            else if(Input.GetMouseButtonDown(1))
                 ShowDiscardCards(); //Cant see both player discard
         }
     }

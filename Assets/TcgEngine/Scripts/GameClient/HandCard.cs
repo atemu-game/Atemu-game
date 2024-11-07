@@ -203,11 +203,11 @@ namespace TcgEngine.Client
 
         public void TryPlayCard(Vector3 board_pos)
         {
-            // if (!GameClient.Get().IsYourTurn())
-            // {
-            //     WarningText.ShowNotYourTurn();
-            //     return;
-            // }
+            if (!GameClient.Get().IsYourTurn())
+            {
+                WarningText.ShowNotYourTurn();
+                return;
+            }
 
             BSlot bslot = BSlot.GetNearest(board_pos);
             int player_id = GameClient.Get().GetPlayerID();
@@ -218,7 +218,7 @@ namespace TcgEngine.Client
             Slot slot = Slot.None;
             if (bslot != null)
                 slot = bslot.GetEmptySlot(board_pos);
-            if (bslot != null && card.CardData.IsRequireTarget())
+            if(bslot != null && card.CardData.IsRequireTarget())
                 slot = bslot.GetSlot(board_pos);
 
             Card slot_card = bslot?.GetSlotCard(board_pos);

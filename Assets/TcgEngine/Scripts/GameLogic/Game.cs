@@ -44,7 +44,7 @@ namespace TcgEngine
         public HashSet<string> cards_attacked = new HashSet<string>();
 
         public Game() { }
-
+        
         public Game(string uid, int nb_players)
         {
             this.game_uid = uid;
@@ -84,18 +84,16 @@ namespace TcgEngine
 
         public virtual bool IsPlayerActionTurn(Player player)
         {
-            return player != null && current_player == player.player_id
+            return player != null && current_player == player.player_id 
                 && state == GameState.Play && selector == SelectorType.None;
-            // return player != null
-            //   && state == GameState.Play && selector == SelectorType.None;
         }
 
         public virtual bool IsPlayerSelectorTurn(Player player)
         {
-            return player != null && selector_player_id == player.player_id
+            return player != null && selector_player_id == player.player_id 
                 && state == GameState.Play && selector != SelectorType.None;
         }
-
+        
         //Check if a card is allowed to be played on slot
         public virtual bool CanPlayCard(Card card, Slot slot, bool skip_cost = false)
         {
@@ -168,7 +166,7 @@ namespace TcgEngine
         //Check if a card is allowed to attack a player
         public virtual bool CanAttackTarget(Card attacker, Player target, bool skip_cost = false)
         {
-            if (attacker == null || target == null)
+            if(attacker == null || target == null)
                 return false;
 
             if (!attacker.CanAttack(skip_cost))
@@ -440,27 +438,6 @@ namespace TcgEngine
             return null;
         }
 
-        //Check if there is card at the same Y axis
-        public bool HasCardX(int x, int player_id)
-        {
-            Slot slot = Slot.Get(x, Slot.y_min, player_id);
-            Card card = GetSlotCard(slot);
-            if (card != null && card.CardData.IsCharacter())
-                return true;
-            return false;
-        }
-
-        public Card FirstUnitCardX(int x, int player_id)
-        {
-            Slot slot = Slot.Get(x, Slot.y_min, player_id);
-            Card card = GetSlotCard(slot);
-            if (card.CardData.IsCharacter())
-                return card;
-            return null;
-        }
-
-
-
         public Card GetSlotCard(Slot slot)
         {
             foreach (Player player in players)
@@ -473,7 +450,7 @@ namespace TcgEngine
             }
             return null;
         }
-
+        
         public virtual Player GetRandomPlayer(System.Random rand)
         {
             Player player = GetPlayer(rand.NextDouble() < 0.5 ? 1 : 0);
@@ -566,7 +543,7 @@ namespace TcgEngine
             if (dest.players == null)
             {
                 dest.players = new Player[source.players.Length];
-                for (int i = 0; i < source.players.Length; i++)
+                for(int i=0; i< source.players.Length; i++)
                     dest.players[i] = new Player(i);
             }
 

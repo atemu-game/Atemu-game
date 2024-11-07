@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 69d932ac50f2a6145addbdef3d1b9020
+  productGUID: 3d1fa7774a62b6c40bda0e4f442446c4
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -837,7 +837,7 @@ PlayerSettings:
   cloudProjectId: 848df3cd-872d-405a-81ab-3e19d85bbb88
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TCGGameCard1
+  projectName: 
   organizationId: binh_dev
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

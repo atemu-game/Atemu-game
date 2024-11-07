@@ -8,7 +8,7 @@ namespace TcgEngine
     /// <summary>
     /// Effect that sets stats equal to a dynamic calculated value from a pile (number of cards on board/hand/deck)
     /// </summary>
-
+    
     [CreateAssetMenu(fileName = "effect", menuName = "TcgEngine/Effect/AddStatCount", order = 10)]
     public class EffectAddStatCount : EffectData
     {
