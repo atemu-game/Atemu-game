@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: fire
   title: Fire
-  icon: {fileID: 21300000, guid: 683a50fcd851d6d45ac0a67c123f2a04, type: 3}
+  icon: {fileID: 21300000, guid: c5d6c9b615519524e9c9080d83b44d6c, type: 3}
   color: {r: 0.8490566, g: 0.20343505, b: 0.06728367, a: 1}
