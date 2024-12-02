@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38c7705bdf86e74f91a9b4e14ddd746, type: 3}
+  m_Name: caster
+  m_EditorClassIdentifier: 
+  id: caster
+  title: Caster
+  icon: {fileID: 21300000, guid: d2438faf9fd1a744395bc861ca29ab5e, type: 3}

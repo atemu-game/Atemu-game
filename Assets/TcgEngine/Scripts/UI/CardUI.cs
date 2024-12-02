@@ -17,7 +17,9 @@ namespace TcgEngine.UI
     public class CardUI : MonoBehaviour, IPointerClickHandler
     {
         public Image card_image;
+        public Image title_image;
         public Image frame_image;
+        public Image class_icon;
         public Image team_icon;
         public Image rarity_icon;
         public Image attack_icon;
@@ -26,8 +28,8 @@ namespace TcgEngine.UI
         public Text attack;
         public Text hp;
         public Text cost;
-
         public Text card_title;
+        public Text card_class;
         public Text card_text;
 
         public TraitUI[] stats;
@@ -71,8 +73,10 @@ namespace TcgEngine.UI
             this.card = card;
             this.variant = variant;
 
-            if(card_image != null)
+            if (card_image != null)
                 card_image.sprite = card.GetFullArt(variant);
+            if (title_image != null)
+                title_image.sprite = card.GetFullTitleArt(variant);
             if (frame_image != null)
                 frame_image.sprite = variant.frame;
             if (card_title != null)
@@ -107,7 +111,15 @@ namespace TcgEngine.UI
                 team_icon.sprite = card.team.icon;
                 team_icon.enabled = team_icon.sprite != null;
             }
-
+            if (class_icon != null)
+            {
+                if (card.cardClass != null)
+                {
+                    class_icon.sprite = card.cardClass.icon;
+                    class_icon.enabled = class_icon.sprite != null;
+                    card_class.text = card.cardClass.title;
+                }
+            }
             if (rarity_icon != null)
             {
                 rarity_icon.sprite = card.rarity.icon;
@@ -131,12 +143,16 @@ namespace TcgEngine.UI
         {
             if (card_image != null)
                 card_image.material = mat;
+            if (title_image != null)
+                title_image.material = mat;
             if (frame_image != null)
                 frame_image.material = mat;
             if (team_icon != null)
                 team_icon.material = mat;
             if (rarity_icon != null)
                 rarity_icon.material = mat;
+            if (class_icon != null)
+                class_icon.material = mat;
             if (attack_icon != null)
                 attack_icon.material = mat;
             if (hp_icon != null)
@@ -149,10 +165,14 @@ namespace TcgEngine.UI
         {
             if (card_image != null)
                 card_image.color = new Color(card_image.color.r, card_image.color.g, card_image.color.b, opacity);
+            if (title_image != null)
+                title_image.color = new Color(title_image.color.r, title_image.color.g, title_image.color.b, opacity);
             if (frame_image != null)
                 frame_image.color = new Color(frame_image.color.r, frame_image.color.g, frame_image.color.b, opacity);
             if (team_icon != null)
                 team_icon.color = new Color(team_icon.color.r, team_icon.color.g, team_icon.color.b, opacity);
+            if (class_icon != null)
+                class_icon.color = new Color(class_icon.color.r, class_icon.color.g, class_icon.color.b, opacity);
             if (rarity_icon != null)
                 rarity_icon.color = new Color(rarity_icon.color.r, rarity_icon.color.g, rarity_icon.color.b, opacity);
             if (attack_icon != null)
@@ -161,6 +181,8 @@ namespace TcgEngine.UI
                 hp_icon.color = new Color(hp_icon.color.r, hp_icon.color.g, hp_icon.color.b, opacity);
             if (cost_icon != null)
                 cost_icon.color = new Color(cost_icon.color.r, cost_icon.color.g, cost_icon.color.b, opacity);
+            if (card_class != null)
+                card_class.color = new Color(card_class.color.r, card_class.color.g, card_class.color.b, opacity);
             if (attack != null)
                 attack.color = new Color(attack.color.r, attack.color.g, attack.color.b, opacity);
             if (hp != null)

@@ -27,11 +27,13 @@ namespace TcgEngine
         public string title;
         public Sprite art_full;
         public Sprite art_board;
+        public Sprite art_title;
 
         [Header("Stats")]
         public CardType type;
         public TeamData team;
         public RarityData rarity;
+        public ClassData cardClass;
         public int mana;
         public int attack;
         public int hp;
@@ -86,6 +88,10 @@ namespace TcgEngine
             return art_board;
         }
 
+        public Sprite GetFullTitleArt(VariantData variant)
+        {
+            return art_title;
+        }
         public Sprite GetFullArt(VariantData variant)
         {
             return art_full;
