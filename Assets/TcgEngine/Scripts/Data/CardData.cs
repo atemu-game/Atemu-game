@@ -181,7 +181,7 @@ namespace TcgEngine
 
         public bool HasTrait(TraitData trait)
         {
-            if(trait != null)
+            if (trait != null)
                 return HasTrait(trait.id);
             return false;
         }
@@ -201,7 +201,7 @@ namespace TcgEngine
 
         public bool HasStat(TraitData trait)
         {
-            if(trait != null)
+            if (trait != null)
                 return HasStat(trait.id);
             return false;
         }
@@ -221,7 +221,7 @@ namespace TcgEngine
 
         public int GetStat(TraitData trait)
         {
-            if(trait != null)
+            if (trait != null)
                 return GetStat(trait.id);
             return 0;
         }
