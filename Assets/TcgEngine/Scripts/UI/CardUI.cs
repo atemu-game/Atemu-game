@@ -116,8 +116,12 @@ namespace TcgEngine.UI
                 if (card.cardClass != null)
                 {
                     class_icon.sprite = card.cardClass.icon;
-                    class_icon.enabled = class_icon.sprite != null;
+                    class_icon.enabled = true;
                     card_class.text = card.cardClass.title;
+                }
+                else
+                {
+                    class_icon.enabled = false;
                 }
             }
             if (rarity_icon != null)

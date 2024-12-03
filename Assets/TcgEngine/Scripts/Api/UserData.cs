@@ -73,7 +73,7 @@ namespace TcgEngine
 
         public void SetDeck(UserDeckData deck)
         {
-            for(int i=0; i<decks.Length; i++)
+            for (int i = 0; i < decks.Length; i++)
             {
                 if (decks[i].tid == deck.tid)
                 {
@@ -206,7 +206,7 @@ namespace TcgEngine
                 AddCard(card.tid, card.variant, 1);
             }
         }
-    
+
         public void AddPack(string tid, int quantity)
         {
             bool found = false;
@@ -272,7 +272,7 @@ namespace TcgEngine
             return false;
         }
 
-        public bool HasPack(string pack_tid, int quantity=1)
+        public bool HasPack(string pack_tid, int quantity = 1)
         {
             foreach (UserCardData pack in packs)
             {
@@ -328,7 +328,7 @@ namespace TcgEngine
         public UserCardData hero;
         public UserCardData[] cards;
 
-        public UserDeckData() {}
+        public UserDeckData() { }
 
         public UserDeckData(string tid, string title)
         {
@@ -360,7 +360,7 @@ namespace TcgEngine
 
         public bool IsValid()
         {
-            return !string.IsNullOrEmpty(tid) && !string.IsNullOrWhiteSpace(title) && GetQuantity() >= GameplayData.Get().deck_size;
+            return !string.IsNullOrEmpty(tid) && !string.IsNullOrWhiteSpace(title) && GetQuantity() == GameplayData.Get().deck_size;
         }
 
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
@@ -394,7 +394,7 @@ namespace TcgEngine
 
         public UserCardData() { tid = ""; variant = ""; quantity = 1; }
         public UserCardData(string id, string v) { tid = id; variant = v; quantity = 1; }
-        public UserCardData(CardData card, VariantData variant) 
+        public UserCardData(CardData card, VariantData variant)
         {
             this.tid = card != null ? card.id : "";
             this.variant = variant != null ? variant.id : "";

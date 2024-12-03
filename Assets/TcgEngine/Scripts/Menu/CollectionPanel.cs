@@ -623,6 +623,12 @@ namespace TcgEngine.UI
                 CardZoomPanel.Get().ShowCard(card.GetCard(), card.GetVariant());
                 return;
             }
+            int count = 0;
+            foreach (UserCardData uCard in deck_cards)
+            {
+                count += uCard.quantity;
+            }
+            if (count >= GameplayData.Get().deck_size) return;
 
             CardData icard = card.GetCard();
             VariantData variant = card.GetVariant();
