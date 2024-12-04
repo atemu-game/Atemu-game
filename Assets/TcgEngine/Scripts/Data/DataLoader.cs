@@ -63,8 +63,8 @@ namespace TcgEngine
                 if (card_ids.Contains(card.id))
                     Debug.LogError("Dupplicate Card ID: " + card.id);
 
-                if (card.team == null)
-                    Debug.LogError(card.id + " team is null");
+                // if (card.team == null)
+                //     Debug.LogError(card.id + " team is null");
                 if (card.rarity == null)
                     Debug.LogError(card.id + " rarity is null");
 

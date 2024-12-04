@@ -19,7 +19,9 @@ namespace TcgEngine.UI
         public Image card_image;
         public Image title_image;
         public Image frame_image;
+        public Image class_bg;
         public Image class_icon;
+        public Image team_bg;
         public Image team_icon;
         public Image rarity_icon;
         public Image attack_icon;
@@ -110,19 +112,28 @@ namespace TcgEngine.UI
             {
                 team_icon.sprite = card.team.icon;
                 team_icon.enabled = team_icon.sprite != null;
+                if (team_bg != null)
+                    team_bg.enabled = team_icon.sprite != null;
+
             }
             if (class_icon != null)
             {
-                if (card.cardClass != null)
+                if (card.cardClass == null)
                 {
-                    class_icon.sprite = card.cardClass.icon;
-                    class_icon.enabled = true;
-                    card_class.text = card.cardClass.title;
+                    class_bg.enabled = false;
+                    class_icon.enabled = false;
+                    card_class.enabled = false;
                 }
                 else
                 {
-                    class_icon.enabled = false;
+                    class_icon.sprite = card.cardClass.icon;
+                    class_icon.enabled = class_icon.sprite != null;
+                    card_class.enabled = class_icon.sprite != null;
+                    card_class.text = card.cardClass.title;
+                    if (class_bg != null)
+                        class_bg.enabled = class_icon.sprite != null;
                 }
+
             }
             if (rarity_icon != null)
             {

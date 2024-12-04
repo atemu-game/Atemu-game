@@ -15,4 +15,4 @@ MonoBehaviour:
   id: earth
   title: Earth
   icon: {fileID: 21300000, guid: 471fe13ec7fd888438ca4376c7f42cdb, type: 3}
-  color: {r: 0.21568628, g: 0.53333336, b: 0.93333334, a: 1}
+  color: {r: 0.4245283, g: 0.15148264, b: 0.05807228, a: 1}

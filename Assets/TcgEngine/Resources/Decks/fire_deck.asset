@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: fire_deck
   title: Fire Starter
-  hero: {fileID: 11400000, guid: cf170aea7ffb041428f37608f1561058, type: 2}
+  hero: {fileID: 0}
   cards:
   - {fileID: 11400000, guid: 99081d84b6aa6264aa1c68c6defbe31d, type: 2}
   - {fileID: 11400000, guid: 99081d84b6aa6264aa1c68c6defbe31d, type: 2}
@@ -36,4 +36,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e430dc2bad4fe049acd2584de26eaad, type: 2}
   - {fileID: 11400000, guid: 836b91f8ff0e85742ac0bea1bc45f60d, type: 2}
   - {fileID: 11400000, guid: 3660f3745defa054392beb41affc32fb, type: 2}
-  - {fileID: 11400000, guid: dcbeaa357b78f1a4694830792f772258, type: 2}
