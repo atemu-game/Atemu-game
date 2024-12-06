@@ -5,7 +5,6 @@ using Dojo.Starknet;
 using dojo_bindings;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
 namespace Dojo.Torii

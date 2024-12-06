@@ -16,8 +16,6 @@ MonoBehaviour:
   title: Forest Starter
   hero: {fileID: 0}
   cards:
-  - {fileID: 11400000, guid: 1e22d4647e903814d96f63a729e1f820, type: 2}
-  - {fileID: 11400000, guid: 1e22d4647e903814d96f63a729e1f820, type: 2}
   - {fileID: 11400000, guid: 2e8eac7ed58a29944a6d2c7d2539fca8, type: 2}
   - {fileID: 11400000, guid: 2e8eac7ed58a29944a6d2c7d2539fca8, type: 2}
   - {fileID: 11400000, guid: 4a0f93237a2ae53468e29927c1b7c1ec, type: 2}
@@ -34,4 +32,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1cec19f2b6532b246a5ed43c9ea966d1, type: 2}
   - {fileID: 11400000, guid: b28109cb7acac0c4e86d8b3d88ef6dad, type: 2}
   - {fileID: 11400000, guid: 149beb7f3fda56b40b84ddbb0917e0bf, type: 2}
-  - {fileID: 11400000, guid: d564bc13a3f2c2a459cfe492217d8d98, type: 2}
+  - {fileID: 11400000, guid: fced434c254f6a94e8377864595757c8, type: 2}
+  - {fileID: 11400000, guid: 9863085763473eb48acc0d06a6f7d6ce, type: 2}
+  - {fileID: 11400000, guid: 149beb7f3fda56b40b84ddbb0917e0bf, type: 2}
+  - {fileID: 11400000, guid: c893315406368cb49b6b0ca112718fa2, type: 2}
+  - {fileID: 11400000, guid: 9f363479388a0c347b8a455c4f32a659, type: 2}

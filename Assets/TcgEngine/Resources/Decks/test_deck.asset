@@ -16,8 +16,6 @@ MonoBehaviour:
   title: Test Deck
   hero: {fileID: 0}
   cards:
-  - {fileID: 11400000, guid: 1e22d4647e903814d96f63a729e1f820, type: 2}
-  - {fileID: 11400000, guid: 1e22d4647e903814d96f63a729e1f820, type: 2}
   - {fileID: 11400000, guid: 2e8eac7ed58a29944a6d2c7d2539fca8, type: 2}
   - {fileID: 11400000, guid: 2e8eac7ed58a29944a6d2c7d2539fca8, type: 2}
   - {fileID: 11400000, guid: 4a0f93237a2ae53468e29927c1b7c1ec, type: 2}

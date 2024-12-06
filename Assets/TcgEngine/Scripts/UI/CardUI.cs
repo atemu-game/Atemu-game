@@ -116,25 +116,38 @@ namespace TcgEngine.UI
                     team_bg.enabled = team_icon.sprite != null;
 
             }
-            if (class_icon != null)
+
+            if (card.cardClass != null)
             {
-                if (card.cardClass == null)
-                {
-                    class_bg.enabled = false;
-                    class_icon.enabled = false;
-                    card_class.enabled = false;
-                }
-                else
+                if (class_icon != null)
                 {
                     class_icon.sprite = card.cardClass.icon;
                     class_icon.enabled = class_icon.sprite != null;
+                }
+                else
+                {
+                    class_bg.enabled = false;
+                }
+                if (card_class != null)
+                {
                     card_class.enabled = class_icon.sprite != null;
                     card_class.text = card.cardClass.title;
-                    if (class_bg != null)
-                        class_bg.enabled = class_icon.sprite != null;
+                }
+                else
+                {
+                    card_class.enabled = false;
+                }
+                if (class_bg != null)
+                    class_bg.enabled = class_icon.sprite != null;
+                else
+                {
+                    class_bg.enabled = false;
                 }
 
             }
+
+
+
             if (rarity_icon != null)
             {
                 rarity_icon.sprite = card.rarity.icon;
