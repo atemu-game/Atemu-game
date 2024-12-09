@@ -124,25 +124,25 @@ namespace TcgEngine.UI
                     class_icon.sprite = card.cardClass.icon;
                     class_icon.enabled = class_icon.sprite != null;
                 }
-                else
-                {
-                    class_bg.enabled = false;
-                }
+                // else
+                // {
+                //     class_bg.enabled = false;
+                // }
                 if (card_class != null)
                 {
                     card_class.enabled = class_icon.sprite != null;
                     card_class.text = card.cardClass.title;
                 }
-                else
-                {
-                    card_class.enabled = false;
-                }
+                // else
+                // {
+                //     card_class.enabled = false;
+                // }
                 if (class_bg != null)
                     class_bg.enabled = class_icon.sprite != null;
-                else
-                {
-                    class_bg.enabled = false;
-                }
+                // else
+                // {
+                //     class_bg.enabled = false;
+                // }
 
             }
 

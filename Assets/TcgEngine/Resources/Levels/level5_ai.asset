@@ -16,13 +16,13 @@ MonoBehaviour:
   title: 
   hero: {fileID: 0}
   cards:
-  - {fileID: 11400000, guid: 90114aa2c3dd29f46820b95467b2bbd3, type: 2}
+  - {fileID: 11400000, guid: 4a0f93237a2ae53468e29927c1b7c1ec, type: 2}
   - {fileID: 11400000, guid: 90322744d448d6a46b8c2361a222d9a6, type: 2}
-  - {fileID: 11400000, guid: 3660f3745defa054392beb41affc32fb, type: 2}
+  - {fileID: 11400000, guid: 99081d84b6aa6264aa1c68c6defbe31d, type: 2}
   - {fileID: 11400000, guid: faacda797c4448a4bbbcbca76c6fefc0, type: 2}
   - {fileID: 11400000, guid: 879711e9fc6210b42a2bc43c0f595222, type: 2}
-  - {fileID: 11400000, guid: 90114aa2c3dd29f46820b95467b2bbd3, type: 2}
-  - {fileID: 11400000, guid: 90114aa2c3dd29f46820b95467b2bbd3, type: 2}
+  - {fileID: 11400000, guid: 21cc9808386a5de498c63fbdb0b3a07d, type: 2}
+  - {fileID: 11400000, guid: 21cc9808386a5de498c63fbdb0b3a07d, type: 2}
   board_cards:
   - card: {fileID: 11400000, guid: 91a80a84e1f0cd94fac96f44bc2ff142, type: 2}
     slot:

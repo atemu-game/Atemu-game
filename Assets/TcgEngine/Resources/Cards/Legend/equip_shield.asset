@@ -16,9 +16,11 @@ MonoBehaviour:
   title: Wooden Shield
   art_full: {fileID: 21300000, guid: 26e4b66f2a4cc4a40a5000cdba227f21, type: 3}
   art_board: {fileID: 21300000, guid: efcc4c8de5003a5479b49e778ff5c83e, type: 3}
+  art_title: {fileID: 0}
   type: 50
   team: {fileID: 11400000, guid: b80d8061c5bdb2e408e62a08e0e743ca, type: 2}
   rarity: {fileID: 11400000, guid: 72248f07232412e4db2f6864dbb4e271, type: 2}
+  cardClass: {fileID: 0}
   mana: 2
   attack: 0
   hp: 2
@@ -30,7 +32,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e662fd7cb36df154d9dd5ce309c4a822, type: 2}
   text: Bearer gains 2 armor and taunt.
   desc: 
-  spawn_fx: {fileID: 5791330189299518109, guid: 1fa8fa11b2c6b9b4d976743e5bbb3956,
+  spawn_fx: {fileID: 7052257666040929376, guid: caadb540421ddca4ba84bb173024079b,
     type: 3}
   death_fx: {fileID: 0}
   attack_fx: {fileID: 0}
