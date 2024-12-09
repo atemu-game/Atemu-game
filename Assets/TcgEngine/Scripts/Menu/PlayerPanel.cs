@@ -121,7 +121,7 @@ namespace TcgEngine.UI
                 cards_all.text = user.CountUniqueCards() + " / " + CardData.GetAllDeckbuilding().Count;
 
                 buttons_area?.SetActive(IsYou());    //Buttons like logout only active if your account
-                account_button?.SetActive(Authenticator.Get().IsApi());
+                // account_button?.SetActive(Authenticator.Get().IsApi());
             }
         }
 

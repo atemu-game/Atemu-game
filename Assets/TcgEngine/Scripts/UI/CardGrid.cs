@@ -45,9 +45,9 @@ namespace TcgEngine.UI
             for (int i = 1; i < grid.transform.childCount; i++)
             {
                 //Get the next child
+                if (!grid.transform.GetChild(i).gameObject.activeInHierarchy) continue;
                 RectTransform currentChildObj = grid.transform.GetChild(i).GetComponent<RectTransform>();
                 Vector2 currentChildPos = currentChildObj.anchoredPosition;
-
                 //check if column or row
                 if (Mathf.Abs(firstChildPos.x - currentChildPos.x) < 0.1f)
                 {

@@ -7,7 +7,7 @@ namespace TcgEngine
     /// <summary>
     /// Defines all fixed deck data (for user custom decks, check UserData.cs)
     /// </summary>
-    
+
     [CreateAssetMenu(fileName = "DeckData", menuName = "TcgEngine/DeckData", order = 7)]
     public class DeckData : ScriptableObject
     {
@@ -24,7 +24,7 @@ namespace TcgEngine
 
         public static void Load(string folder = "")
         {
-            if(deck_list.Count == 0)
+            if (deck_list.Count == 0)
                 deck_list.AddRange(Resources.LoadAll<DeckData>(folder));
         }
 
@@ -35,7 +35,7 @@ namespace TcgEngine
 
         public bool IsValid()
         {
-            return cards.Length >= GameplayData.Get().deck_size;
+            return cards.Length == GameplayData.Get().deck_size;
         }
 
         public static DeckData Get(string id)

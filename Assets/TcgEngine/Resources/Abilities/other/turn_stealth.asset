@@ -31,9 +31,10 @@ MonoBehaviour:
   board_fx: {fileID: 0}
   caster_fx: {fileID: 0}
   target_fx: {fileID: 0}
+  projectile_fx: {fileID: 0}
   cast_audio: {fileID: 0}
   target_audio: {fileID: 0}
   charge_target: 0
-  title: Stealth
+  title: Slaughter
   desc: At the end of your turn, if you have at least one other character in play,
     go in stealth.

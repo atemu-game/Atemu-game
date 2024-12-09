@@ -124,9 +124,11 @@ namespace TcgEngine.UI
             update_grid_timer += Time.deltaTime;
             if (update_grid && update_grid_timer > 0.2f)
             {
+
                 grid_content.GetColumnAndRow(out int rows, out int cols);
                 if (cols > 0)
                 {
+
                     float row_height = grid_content.GetGrid().cellSize.y + grid_content.GetGrid().spacing.y;
                     float height = rows * row_height;
                     scroll_content.sizeDelta = new Vector2(scroll_content.sizeDelta.x, height + 100);
@@ -216,7 +218,7 @@ namespace TcgEngine.UI
             deck_list_panel.Hide();
             card_list_panel.Show();
         }
-        
+
         public void RefreshCards()
         {
             if (!spawned)
@@ -385,7 +387,7 @@ namespace TcgEngine.UI
                     if (deck.hero != null && btn.value == deck.hero.tid)
                         btn.Activate();
                 }
-                
+
                 for (int i = 0; i < deck.cards.Length; i++)
                 {
                     CardData card = CardData.Get(deck.cards[i].tid);
@@ -501,7 +503,7 @@ namespace TcgEngine.UI
                 {
                     ucard.quantity--;
 
-                    if(ucard.quantity <= 0)
+                    if (ucard.quantity <= 0)
                         deck_cards.RemoveAt(i);
                 }
             }
@@ -621,6 +623,12 @@ namespace TcgEngine.UI
                 CardZoomPanel.Get().ShowCard(card.GetCard(), card.GetVariant());
                 return;
             }
+            int count = 0;
+            foreach (UserCardData uCard in deck_cards)
+            {
+                count += uCard.quantity;
+            }
+            if (count >= GameplayData.Get().deck_size) return;
 
             CardData icard = card.GetCard();
             VariantData variant = card.GetVariant();
@@ -709,7 +717,7 @@ namespace TcgEngine.UI
                 DeleteDeck(deck.tid);
             }
         }
-        
+
         // ---- Getters -----
 
         public int CountDeckCards(CardData card, VariantData cvariant)

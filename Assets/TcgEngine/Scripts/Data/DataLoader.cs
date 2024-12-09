@@ -34,6 +34,7 @@ namespace TcgEngine
             CardData.Load();
             TeamData.Load();
             RarityData.Load();
+            ClassData.Load();
             TraitData.Load();
             VariantData.Load();
             PackData.Load();
@@ -62,8 +63,8 @@ namespace TcgEngine
                 if (card_ids.Contains(card.id))
                     Debug.LogError("Dupplicate Card ID: " + card.id);
 
-                if (card.team == null)
-                    Debug.LogError(card.id + " team is null");
+                // if (card.team == null)
+                //     Debug.LogError(card.id + " team is null");
                 if (card.rarity == null)
                     Debug.LogError(card.id + " rarity is null");
 
@@ -84,7 +85,7 @@ namespace TcgEngine
 
                 foreach (AbilityData ability in card.abilities)
                 {
-                    if(ability == null)
+                    if (ability == null)
                         Debug.LogError(card.id + " has null ability");
                 }
 
@@ -121,7 +122,7 @@ namespace TcgEngine
             CheckDeckArray(gdata.free_decks);
             CheckDeckArray(gdata.starter_decks);
 
-            if(gdata.test_deck == null || gdata.test_deck_ai == null)
+            if (gdata.test_deck == null || gdata.test_deck_ai == null)
                 Debug.Log("Deck is null in Resources/GameplayData");
 
             deck_ids.Clear();
@@ -154,7 +155,7 @@ namespace TcgEngine
         private void CheckVariantData()
         {
             VariantData dvariant = VariantData.GetDefault();
-            if(dvariant == null)
+            if (dvariant == null)
                 Debug.LogError("No default variant data found, make sure you have a default VariantData");
         }
 

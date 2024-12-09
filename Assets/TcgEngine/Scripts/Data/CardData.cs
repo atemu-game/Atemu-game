@@ -27,11 +27,13 @@ namespace TcgEngine
         public string title;
         public Sprite art_full;
         public Sprite art_board;
+        public Sprite art_title;
 
         [Header("Stats")]
         public CardType type;
         public TeamData team;
         public RarityData rarity;
+        public ClassData cardClass;
         public int mana;
         public int attack;
         public int hp;
@@ -86,6 +88,10 @@ namespace TcgEngine
             return art_board;
         }
 
+        public Sprite GetFullTitleArt(VariantData variant)
+        {
+            return art_title;
+        }
         public Sprite GetFullArt(VariantData variant)
         {
             return art_full;
@@ -181,7 +187,7 @@ namespace TcgEngine
 
         public bool HasTrait(TraitData trait)
         {
-            if(trait != null)
+            if (trait != null)
                 return HasTrait(trait.id);
             return false;
         }
@@ -201,7 +207,7 @@ namespace TcgEngine
 
         public bool HasStat(TraitData trait)
         {
-            if(trait != null)
+            if (trait != null)
                 return HasStat(trait.id);
             return false;
         }
@@ -221,7 +227,7 @@ namespace TcgEngine
 
         public int GetStat(TraitData trait)
         {
-            if(trait != null)
+            if (trait != null)
                 return GetStat(trait.id);
             return 0;
         }
