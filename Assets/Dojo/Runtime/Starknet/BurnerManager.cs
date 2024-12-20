@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using dojo_bindings;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
@@ -48,7 +48,7 @@ namespace Dojo.Starknet
 
             Burners.Add(await masterAccount.DeployBurner(provider, signingKey));
             currentBurnerIndex = Burners.Count - 1;
-
+            
 
             if (UseStorage)
             {

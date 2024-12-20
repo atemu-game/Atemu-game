@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_fair_trade
   title: Fair Trade
-  art_full: {fileID: 21300000, guid: dc39461cd2e480e4f87b43a21614a9c1, type: 3}
+  art_full: {fileID: 21300000, guid: b398f95467ff58e4bbfd94ba55c373ad, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
+  art_title: {fileID: 21300000, guid: 929c7bf0a7efe434593ca6b41d8376f2, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: 15eaa2a0fbd97f149b3aa87387c160d1, type: 2}

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_call_of_river
   title: The Call of the River
-  art_full: {fileID: 21300000, guid: 7f85ee0ad8b42e242b2d12985449c0e3, type: 3}
+  art_full: {fileID: 21300000, guid: ad7d3d50131f55549b57b49bcadb538e, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
+  art_title: {fileID: 21300000, guid: 8201d0214b154d64fb37d6f83c3f8de1, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: 13b592f40b7cd424c966f5d7eef425aa, type: 2}

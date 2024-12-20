@@ -37,13 +37,6 @@ namespace Dojo
             synchronizationMaster.RegisterEventMessageCallbacks();
         }
 
-
-        void Start()
-        {
-            var provider = new JsonRpcClient(dojoConfig.rpcUrl);
-            // var signer = new SigningKey(masterPrivateKey);
-            // var account = new Account(provider, signer, new FieldElement(masterAddress));
-        }
         // #if UNITY_WEBGL && !UNITY_EDITOR
         //         // internal callback to be called for when the client is created
         //         // on the wasm sdk. 

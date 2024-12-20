@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_no_weakness
   title: No Weakness
-  art_full: {fileID: 21300000, guid: 58bd7ee75c4b5784f83b94d750e24c1a, type: 3}
+  art_full: {fileID: 21300000, guid: 3f430eca0e2339c47b8a1d61386582fd, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
+  art_title: {fileID: 21300000, guid: ed18d7436e8f76f4991cb3a6198d15a6, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: 72248f07232412e4db2f6864dbb4e271, type: 2}

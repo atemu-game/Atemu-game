@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_the_prophecy
   title: The Prophecy
-  art_full: {fileID: 21300000, guid: ddde5e5a5e9bb0e4c91bd98f3433870d, type: 3}
+  art_full: {fileID: 21300000, guid: a0b7f67ea792ce94eafe2d0d1b79d95d, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
+  art_title: {fileID: 21300000, guid: 302a93b6fdff1c44a9200cd1a3c68c49, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: 13b592f40b7cd424c966f5d7eef425aa, type: 2}

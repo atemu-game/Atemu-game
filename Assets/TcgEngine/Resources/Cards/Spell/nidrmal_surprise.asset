@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 843a21f7f6f205741a0a7341aec8e84d, type: 3}
-  m_Name: spell_blodulf_howling
+  m_Name: nidrmal_surprise
   m_EditorClassIdentifier: 
-  id: spell_blodulf_howling
-  title: Blodulf Howling
-  art_full: {fileID: 21300000, guid: c61150d537e17034a96383be5c7d8096, type: 3}
+  id: nidrmal_surprise
+  title: "Nidrm\xE1l Surprise"
+  art_full: {fileID: 21300000, guid: cea7f7a2a581c434fad54675927a2221, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
-  type: 20
+  art_title: {fileID: 21300000, guid: 5a1d9e8170d303b4dbce634b55522a38, type: 3}
+  type: 40
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
-  rarity: {fileID: 11400000, guid: fab1a52f5a36cc942985dea95be18ac9, type: 2}
+  rarity: {fileID: 11400000, guid: 72248f07232412e4db2f6864dbb4e271, type: 2}
   cardClass: {fileID: 0}
-  mana: 2
+  mana: 3
   attack: 0
   hp: 0
   traits: []
   stats: []
   abilities:
-  - {fileID: 11400000, guid: 5565d79cda46a94448235040cf1ffc78, type: 2}
-  - {fileID: 11400000, guid: 0467a52e38fa16c46b50053c7270a3ee, type: 2}
-  text: Target gains 1 attack and fury.
+  - {fileID: 11400000, guid: f86a63b7816f61043aee385921bd6b99, type: 2}
+  text: <b>Trap:</b> Damage all by 2.
   desc: 
   spawn_fx: {fileID: 0}
   death_fx: {fileID: 0}

@@ -18,7 +18,7 @@ using System.ComponentModel;
 namespace System.Runtime.CompilerServices
 {
     [EditorBrowsable(EditorBrowsableState.Never)]
-    internal class IsExternalInit{}
+    internal class IsExternalInit { }
 }
 
 public class GameManager : MonoBehaviour
@@ -42,77 +42,79 @@ public class GameManager : MonoBehaviour
         provider = new JsonRpcClient(dojoConfig.rpcUrl);
         masterAccount = new Account(provider, new SigningKey(gameManagerData.masterPrivateKey), new FieldElement(gameManagerData.masterAddress));
         burnerManager = new BurnerManager(provider, masterAccount);
+        var signer = new SigningKey(gameManagerData.masterPrivateKey);
+        var account = new Account(provider, signer, new FieldElement(gameManagerData.masterAddress));
 
-        worldManager.synchronizationMaster.OnEntitySpawned.AddListener(InitEntity);
-        foreach (var entity in worldManager.Entities<ns_Position>())
-        {
-            InitEntity(entity);
-        }
+        // worldManager.synchronizationMaster.OnEntitySpawned.AddListener(InitEntity);
+        // foreach (var entity in worldManager.Entities<ns_Position>())
+        // {
+        //     InitEntity(entity);
+        // }
     }
 
     async void Update()
     {
-        // dont register inputs if our chat is open
-        if (chatManager.chatOpen) return;
+        // // dont register inputs if our chat is open
+        // if (chatManager.chatOpen) return;
 
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            spawnedAccounts[masterAccount.Address] = null;
-            var txHash = await actions.spawn(masterAccount);
-        }
+        // if (Input.GetKeyUp(KeyCode.E))
+        // {
+        //     spawnedAccounts[masterAccount.Address] = null;
+        //     var txHash = await actions.spawn(masterAccount);
+        // }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            var burner = await burnerManager.DeployBurner();
-            spawnedAccounts[burner.Address] = null;
-            var txHash = await actions.spawn(burner);
-        }
+        // if (Input.GetKeyUp(KeyCode.Space))
+        // {
+        //     var burner = await burnerManager.DeployBurner();
+        //     spawnedAccounts[burner.Address] = null;
+        //     var txHash = await actions.spawn(burner);
+        // }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var hit = Physics.Raycast(ray, out var hitInfo);
-            if (hit && hitInfo.transform.parent != null)
-            {
-                var entity = hitInfo.transform.parent;
-                ns_Position position;
-                entity.TryGetComponent(out position);
+        // if (Input.GetMouseButtonUp(0))
+        // {
+        //     var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     var hit = Physics.Raycast(ray, out var hitInfo);
+        //     if (hit && hitInfo.transform.parent != null)
+        //     {
+        //         var entity = hitInfo.transform.parent;
+        //         ns_Position position;
+        //         entity.TryGetComponent(out position);
 
-                if (position && spawnedAccounts.ContainsValue(entity.name))
-                {
-                    var previousBurner = burnerManager.CurrentBurner;
-                    if (previousBurner != null)
-                    {
-                        worldManager.Entity(spawnedAccounts[previousBurner.Address])
-                            .GetComponent<ns_Position>().textTag.color = Color.black;
-                    }
+        //         if (position && spawnedAccounts.ContainsValue(entity.name))
+        //         {
+        //             var previousBurner = burnerManager.CurrentBurner;
+        //             if (previousBurner != null)
+        //             {
+        //                 worldManager.Entity(spawnedAccounts[previousBurner.Address])
+        //                     .GetComponent<ns_Position>().textTag.color = Color.black;
+        //             }
 
-                    var burner = spawnedAccounts.First(b => b.Value == entity.name);
-                    var burnerAddress = burner.Key;
-                    var burnerInstance = burnerManager.Burners.First(b => b.Address == burnerAddress);
+        //             var burner = spawnedAccounts.First(b => b.Value == entity.name);
+        //             var burnerAddress = burner.Key;
+        //             var burnerInstance = burnerManager.Burners.First(b => b.Address == burnerAddress);
 
-                    position.textTag.color = Color.blue;
-                }
-            }
-        }
+        //             position.textTag.color = Color.blue;
+        //         }
+        //     }
+        // }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            // coordinates are different between dojo world and unity
-            Move(new Direction.Down());
-        }
-        else if (Input.GetKeyDown(KeyCode.A))
-        {
-            Move(new Direction.Left());
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            Move(new Direction.Up());
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            Move(new Direction.Right());
-        }
+        // if (Input.GetKeyDown(KeyCode.W))
+        // {
+        //     // coordinates are different between dojo world and unity
+        //     Move(new Direction.Down());
+        // }
+        // else if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     Move(new Direction.Left());
+        // }
+        // else if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     Move(new Direction.Up());
+        // }
+        // else if (Input.GetKeyDown(KeyCode.D))
+        // {
+        //     Move(new Direction.Right());
+        // }
     }
 
     private async void Move(Direction direction)
@@ -124,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
         // check if entity has position component
         if (!entity.TryGetComponent(out ns_Position position)) return;
-        
+
         var capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
         // change color of capsule to a random color
         capsule.GetComponent<Renderer>().material.color = Random.ColorHSV();
