@@ -136,7 +136,9 @@ namespace TcgEngine
                 foreach (CardData card in deck.cards)
                 {
                     if (card == null)
-                        Debug.LogError(deck.id + " has null card");
+                    {
+                        Debug.LogError(deck.id + " " + deck.title + " has null card");
+                    }
                 }
 
                 deck_ids.Add(deck.id);

@@ -116,30 +116,30 @@ namespace TcgEngine.UI
                     team_bg.enabled = team_icon.sprite != null;
 
             }
-
-            if (card.cardClass != null)
+            if (class_bg != null)
             {
-                class_bg.SetActive(true);
+                if (card.cardClass != null)
+                {
+                    class_bg.SetActive(true);
 
-                if (class_icon != null)
-                {
-                    class_icon.sprite = card.cardClass.icon;
-                    class_icon.enabled = class_icon.sprite != null;
-                }
-                if (card_class != null)
-                {
-                    card_class.enabled = class_icon.sprite != null;
-                    card_class.text = card.cardClass.title;
+                    if (class_icon != null)
+                    {
+                        class_icon.sprite = card.cardClass.icon;
+                        class_icon.enabled = class_icon.sprite != null;
+                    }
+                    if (card_class != null)
+                    {
+                        card_class.enabled = class_icon.sprite != null;
+                        card_class.text = card.cardClass.title;
+                    }
                 }
                 else
                 {
-                    card_class.enabled = false;
+                    class_bg.SetActive(false);
                 }
             }
-            else
-            {
-                class_bg.SetActive(false);
-            }
+
+
 
 
 

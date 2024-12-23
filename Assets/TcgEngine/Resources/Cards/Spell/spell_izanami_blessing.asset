@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_izanami_blessing
   title: Izanami Blessing
-  art_full: {fileID: 21300000, guid: 1b9718ccd992ed342b0cdca2909c956f, type: 3}
+  art_full: {fileID: 21300000, guid: f699c2371e17b0541b283bd62e6685d7, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 21300000, guid: ebcdeddeb57329d428594864cd506888, type: 3}
+  art_title: {fileID: 21300000, guid: 177c7759f41c3d149be0668ae3e16519, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: fab1a52f5a36cc942985dea95be18ac9, type: 2}

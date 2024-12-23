@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_ragnarok
   title: Ragnarok
-  art_full: {fileID: 21300000, guid: 17302ac2974c91c449dc2bf56d3e31d0, type: 3}
+  art_full: {fileID: 21300000, guid: e4170e83e47fa4f41aeffd63dbaa7339, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 21300000, guid: 42241a92d5b312341a2a7efac20ef7d0, type: 3}
+  art_title: {fileID: 21300000, guid: e19b542bbd5453443ae4a7e8aad39214, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: 15eaa2a0fbd97f149b3aa87387c160d1, type: 2}

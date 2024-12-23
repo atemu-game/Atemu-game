@@ -15,7 +15,7 @@ MonoBehaviour:
   id: gremory
   title: Gremory
   art_full: {fileID: 21300000, guid: a3511c3c149913e449c89df615617f22, type: 3}
-  art_board: {fileID: 21300000, guid: e7b6b8d655a48f44d88797c5e0687e6f, type: 3}
+  art_board: {fileID: 21300000, guid: 2d006eea81c47e54db30f326dd882afb, type: 3}
   art_title: {fileID: 21300000, guid: fb6001f67f99da244abeea19626dd11e, type: 3}
   type: 10
   team: {fileID: 11400000, guid: b80d8061c5bdb2e408e62a08e0e743ca, type: 2}

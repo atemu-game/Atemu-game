@@ -151,19 +151,19 @@ namespace Dojo.Torii
         {
             // Remove "0x" prefix if present
             hex = hex.StartsWith("0x", StringComparison.OrdinalIgnoreCase) ? hex[2..] : hex;
-
+            
             // Ensure even number of characters
             if (hex.Length % 2 != 0)
                 hex = "0" + hex;
-
+            
             byte[] bytes = new byte[hex.Length / 2];
-
+            
             for (int i = 0; i < bytes.Length; i++)
             {
                 string byteValue = hex.Substring(i * 2, 2);
                 bytes[i] = Convert.ToByte(byteValue, 16);
             }
-
+            
             return bytes;
         }
 
@@ -194,14 +194,14 @@ namespace Dojo.Torii
         {
             var reversed = bytes.Reverse().ToArray();
             var unsigned = new BigInteger(reversed);
-
+            
             // Check if the highest bit is set (negative number)
             if ((unsigned & (BigInteger.One << 63)) != 0)
             {
                 // Convert from two's complement
                 unsigned -= BigInteger.One << 64;
             }
-
+            
             return (long)unsigned;
         }
 
@@ -209,14 +209,14 @@ namespace Dojo.Torii
         {
             var reversed = bytes.Reverse().ToArray();
             var unsigned = new BigInteger(reversed);
-
+            
             // Check if the highest bit is set (negative number)
             if ((unsigned & (BigInteger.One << 127)) != 0)
             {
                 // Convert from two's complement
                 unsigned -= BigInteger.One << 128;
             }
-
+            
             return unsigned;
         }
     }

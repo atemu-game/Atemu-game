@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/TcgEngine/Sprites/Cards/NameSpell.meta
 guid: e8a60b8973d14c74da3942cb7893f206
+========
+guid: b16ed97d7a2a7824499fc6db02c7ac7d
+>>>>>>>> dev:Assets/TcgEngine/Sprites/Cards/Name Spell.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

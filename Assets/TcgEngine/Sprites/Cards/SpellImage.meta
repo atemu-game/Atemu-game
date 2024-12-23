@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/TcgEngine/Sprites/Cards/SpellImage.meta
 guid: 3a7a56040e3bfdf42b437c50f0cc0357
+========
+guid: 5c09ca0a4bc7dc44a8c39478329c168a
+>>>>>>>> dev:Assets/TcgEngine/Sprites/Cards/Spell.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
