@@ -21,19 +21,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b6c42bd471da89e47afedf7c771d8d15, type: 2}
   - {fileID: 11400000, guid: b28109cb7acac0c4e86d8b3d88ef6dad, type: 2}
   - {fileID: 11400000, guid: c26efbbdb66a33048ab44661fb009ad4, type: 2}
-  - {fileID: 11400000, guid: 1e22d4647e903814d96f63a729e1f820, type: 2}
+  - {fileID: 11400000, guid: 4a0f93237a2ae53468e29927c1b7c1ec, type: 2}
   - {fileID: 11400000, guid: 9863085763473eb48acc0d06a6f7d6ce, type: 2}
   - {fileID: 11400000, guid: b28109cb7acac0c4e86d8b3d88ef6dad, type: 2}
   board_cards:
-  - card: {fileID: 11400000, guid: b9f08ad1ccd0ff24fad5a626483f76c3, type: 2}
+  - card: {fileID: 11400000, guid: f0c78ac70b512444bb68f20b04329249, type: 2}
     slot:
       x: 2
       y: 1
-  - card: {fileID: 11400000, guid: b9f08ad1ccd0ff24fad5a626483f76c3, type: 2}
+  - card: {fileID: 11400000, guid: f0c78ac70b512444bb68f20b04329249, type: 2}
     slot:
       x: 3
       y: 1
-  - card: {fileID: 11400000, guid: b9f08ad1ccd0ff24fad5a626483f76c3, type: 2}
+  - card: {fileID: 11400000, guid: f0c78ac70b512444bb68f20b04329249, type: 2}
     slot:
       x: 4
       y: 1

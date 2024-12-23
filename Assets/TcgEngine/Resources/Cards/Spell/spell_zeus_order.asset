@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_zeus_order
   title: Order Of Zeus
-  art_full: {fileID: 21300000, guid: cc3bd4bae8a25fb4693234894df54925, type: 3}
+  art_full: {fileID: 21300000, guid: 4059bcff4368cdf47bcca1925107fe20, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
+  art_title: {fileID: 21300000, guid: 479b48f46e06a9040a50202b0229867e, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: fab1a52f5a36cc942985dea95be18ac9, type: 2}

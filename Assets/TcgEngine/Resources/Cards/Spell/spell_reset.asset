@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: spell_reset
   title: Reset
-  art_full: {fileID: 21300000, guid: 87b1bf15c44b86945b51d6a798840222, type: 3}
+  art_full: {fileID: 21300000, guid: 8cb04d42ca6aafa4faaccc4fce7393ee, type: 3}
   art_board: {fileID: 0}
-  art_title: {fileID: 0}
+  art_title: {fileID: 21300000, guid: d5f3ede019cabd24887a272a5fba31c6, type: 3}
   type: 20
   team: {fileID: 11400000, guid: 44accef98e769754d9edb8fe6051443a, type: 2}
   rarity: {fileID: 11400000, guid: 15eaa2a0fbd97f149b3aa87387c160d1, type: 2}

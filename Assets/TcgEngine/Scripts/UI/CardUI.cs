@@ -19,7 +19,7 @@ namespace TcgEngine.UI
         public Image card_image;
         public Image title_image;
         public Image frame_image;
-        public Image class_bg;
+        public GameObject class_bg;
         public Image class_icon;
         public Image team_bg;
         public Image team_icon;
@@ -119,14 +119,12 @@ namespace TcgEngine.UI
 
             if (card.cardClass != null)
             {
+                class_bg.SetActive(true);
+
                 if (class_icon != null)
                 {
                     class_icon.sprite = card.cardClass.icon;
                     class_icon.enabled = class_icon.sprite != null;
-                }
-                else
-                {
-                    class_bg.enabled = false;
                 }
                 if (card_class != null)
                 {
@@ -137,13 +135,10 @@ namespace TcgEngine.UI
                 {
                     card_class.enabled = false;
                 }
-                if (class_bg != null)
-                    class_bg.enabled = class_icon.sprite != null;
-                else
-                {
-                    class_bg.enabled = false;
-                }
-
+            }
+            else
+            {
+                class_bg.SetActive(false);
             }
 
 

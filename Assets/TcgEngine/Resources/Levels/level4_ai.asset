@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83692bb780503404b92feed04c7d222b, type: 2}
   - {fileID: 11400000, guid: 21cc9808386a5de498c63fbdb0b3a07d, type: 2}
   - {fileID: 11400000, guid: 83692bb780503404b92feed04c7d222b, type: 2}
-  - {fileID: 11400000, guid: 979b326ecf73d0a4791dc37a6f13c24a, type: 2}
+  - {fileID: 11400000, guid: 58f3c5b170fe7824aa33bd4875e07f3a, type: 2}
   board_cards:
   - card: {fileID: 11400000, guid: 551493b0ae0cdb64b856f53058c9fb61, type: 2}
     slot:
