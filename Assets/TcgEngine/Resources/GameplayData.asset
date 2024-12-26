@@ -24,8 +24,8 @@ MonoBehaviour:
   deck_size: 20
   deck_duplicate_max: 2
   sell_ratio: 0.8
-  ai_type: 10
-  ai_level: 10
+  ai_type: 0
+  ai_level: 1
   free_decks:
   - {fileID: 11400000, guid: 0e6326c43c0688e40bbf592cf3ea6dec, type: 2}
   - {fileID: 11400000, guid: 8539b1ce42aef234786631b3c4bfb067, type: 2}

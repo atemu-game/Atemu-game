@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TcgEngine/Scenes/Game/Game.unity
     guid: a936cb4417b05b24cb76800a3d6fcc7d
+  - enabled: 0
+    path: Assets/TcgEngine/Scenes/Server/Server.unity
+    guid: acefba10b24d5f14aa51f6451ec467bf
   m_configObjects: {}
