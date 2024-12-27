@@ -13,7 +13,6 @@ namespace TcgEngine.UI
     public class CardZoomPanel : UIPanel
     {
         public CardUI card_ui;
-        public Text card_name;
         public Text desc;
         public Image quantity_bar;
         public Text quantity_txt;
@@ -70,13 +69,9 @@ namespace TcgEngine.UI
             trade_area?.SetActive(card.deckbuilding && card.cost > 0);
 
             card_ui.SetCard(card, variant);
-            string cardName = card.GetTitle();
-            Debug.Log(cardName);
             string desc = card.GetDesc();
             string adesc = card.GetAbilitiesDesc();
-            if (!string.IsNullOrWhiteSpace(cardName))
-                card_name.text = cardName;
-            if (!string.IsNullOrWhiteSpace(desc))
+            if(!string.IsNullOrWhiteSpace(desc))
                 this.desc.text = desc + "\n\n" + adesc;
             else
                 this.desc.text = adesc;

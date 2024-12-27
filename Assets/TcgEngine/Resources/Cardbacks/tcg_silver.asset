@@ -15,4 +15,4 @@ MonoBehaviour:
   id: tcg_silver
   cardback: {fileID: 21300000, guid: 0e839bd6251bf9a4697b9cb18c1565a4, type: 3}
   deck: {fileID: 21300000, guid: 23ce0a1828f761845b5505cf96d99463, type: 3}
-  sort_order: 1
+  sort_order: 0

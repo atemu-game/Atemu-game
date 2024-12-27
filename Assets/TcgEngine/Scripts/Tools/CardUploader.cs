@@ -127,8 +127,11 @@ namespace TcgEngine
                     ShowText("Uploading Reward: " + level.id);
                     UploadLevelReward(level);
 
-                    foreach (DeckData deck in level.reward_decks)
-                        UploadDeck(deck);
+                    if (level.reward_decks != null)
+                    {
+                        foreach (DeckData deck in level.reward_decks)
+                            UploadDeck(deck);
+                    }
 
                     await TimeTool.Delay(100);
                 }
@@ -267,6 +270,10 @@ namespace TcgEngine
                 rcard.hp = card.hp;
                 rcard.cost = card.cost;
                 rcard.packs = new string[card.packs.Length];
+                for (int p = 0; p < card.packs.Length; p++)
+                {
+                    rcard.packs[p] = card.packs[p].id;
+                }
                 req.cards[i] = rcard;
             }
 
@@ -327,10 +334,10 @@ namespace TcgEngine
 
             if (reward.decks != null)
             {
-                req.cards = new string[reward.decks.Length];
+                req.decks = new string[reward.decks.Length];
                 for (int i = 0; i < reward.decks.Length; i++)
                 {
-                    req.cards[i] = reward.decks[i].id;
+                    req.decks[i] = reward.decks[i].id;
                 }
             }
 

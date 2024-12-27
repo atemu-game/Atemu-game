@@ -186,6 +186,18 @@ namespace TcgEngine
         }
     }
 
+    public class MsgCardValue : INetworkSerializable
+    {
+        public string card_uid;
+        public int value;
+
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref card_uid);
+            serializer.SerializeValue(ref value);
+        }
+    }
+
     public class MsgPlayer : INetworkSerializable
     {
         public int player_id;
@@ -193,6 +205,18 @@ namespace TcgEngine
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref player_id);
+        }
+    }
+
+    public class MsgPlayerValue : INetworkSerializable
+    {
+        public int player_id;
+        public int value;
+
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref player_id);
+            serializer.SerializeValue(ref value);
         }
     }
 

@@ -96,6 +96,14 @@ namespace TcgEngine
     }
 
     [Serializable]
+    public struct SellDuplicateRequest
+    {
+        //public string variant;
+        //public string rarity;
+        public int keep;
+    }
+
+    [Serializable]
     public struct OpenPackRequest
     {
         public string pack;

@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ce5f81e5cc37f547af6923758602c8c, type: 3}
-  m_Name: spell_send_hand
+  m_Name: flying
   m_EditorClassIdentifier: 
-  id: spell_send_hand
-  trigger: 10
+  id: flying
+  trigger: 2
   conditions_trigger: []
-  target: 20
-  conditions_target:
-  - {fileID: 11400000, guid: 902733d12f434e94b904de5ebf4112de, type: 2}
-  - {fileID: 11400000, guid: a1fb3a7171663234280fdfb41c99ab0a, type: 2}
+  target: 1
+  conditions_target: []
   filters_target: []
-  effects:
-  - {fileID: 11400000, guid: 8f17c76aa367dd144a0665d4514588e9, type: 2}
-  status: []
+  effects: []
+  status:
+  - {fileID: 11400000, guid: e86bf308bfe6d624897e484aa1f74d02, type: 2}
   value: 0
   duration: 0
   chain_abilities: []
@@ -30,11 +28,9 @@ MonoBehaviour:
   exhaust: 0
   board_fx: {fileID: 0}
   caster_fx: {fileID: 0}
-  target_fx: {fileID: 4111861026374802697, guid: a9dd7f86c32fa924eba176b02f2cd9ea,
-    type: 3}
-  projectile_fx: {fileID: 0}
+  target_fx: {fileID: 0}
   cast_audio: {fileID: 0}
   target_audio: {fileID: 0}
   charge_target: 0
-  title: Zues's Order
-  desc: Return target to its owner's hand.
+  title: Flying
+  desc: Can ignore Taunt.

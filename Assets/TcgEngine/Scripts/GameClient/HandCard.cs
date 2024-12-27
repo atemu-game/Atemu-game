@@ -196,7 +196,7 @@ namespace TcgEngine.Client
             Vector3 board_pos = GameBoard.Get().RaycastMouseBoard();
             if (drag && mpos.y > 0.25f)
                 TryPlayCard(board_pos);
-            else
+            else if (!GameTool.IsMobile())
                 HandCardArea.Get().SortCards();
             drag = false;
         }

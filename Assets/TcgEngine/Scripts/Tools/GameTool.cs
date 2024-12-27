@@ -115,10 +115,8 @@ namespace TcgEngine
         {
 #if UNITY_ANDROID || UNITY_IOS || UNITY_TIZEN
             return true;
-#elif UNITY_WEBGL
-            return WebGLTool.IsMobile();
 #else
-            return false;
+            return UnityEngine.Device.Application.isMobilePlatform;
 #endif
         }
 

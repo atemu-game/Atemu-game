@@ -53,6 +53,11 @@ namespace TcgEngine.Client
         public UnityAction<Card, Player> onAttackPlayerStart;
         public UnityAction<Card, Player> onAttackPlayerEnd;
 
+        public UnityAction<Card, int> onCardDamaged;
+        public UnityAction<Player, int> onPlayerDamaged;
+        public UnityAction<Card, int> onCardHealed;
+        public UnityAction<Player, int> onPlayerHealed;
+
         public UnityAction<int, string> onChatMsg;  //player_id, msg
         public UnityAction< string> onServerMsg;  //msg
         public UnityAction onRefreshAll;
@@ -94,6 +99,10 @@ namespace TcgEngine.Client
             RegisterRefresh(GameAction.AttackEnd, OnAttackEnd);
             RegisterRefresh(GameAction.AttackPlayerStart, OnAttackPlayerStart);
             RegisterRefresh(GameAction.AttackPlayerEnd, OnAttackPlayerEnd);
+            RegisterRefresh(GameAction.CardDamaged, OnCardDamaged);
+            RegisterRefresh(GameAction.PlayerDamaged, OnPlayerDamaged);
+            RegisterRefresh(GameAction.CardHealed, OnCardHealed);
+            RegisterRefresh(GameAction.PlayerHealed, OnPlayerHealed);
 
             RegisterRefresh(GameAction.AbilityTrigger, OnAbilityTrigger);
             RegisterRefresh(GameAction.AbilityTargetCard, OnAbilityTargetCard);
@@ -183,7 +192,7 @@ namespace TcgEngine.Client
 
         public virtual async void ConnectToServer()
         {
-            await Task.Delay(100); //Wait for initialization to finish
+            await TimeTool.Delay(100); //Wait for initialization to finish
 
             if (TcgNetwork.Get().IsActive())
                 return; // Already connected
@@ -204,7 +213,7 @@ namespace TcgEngine.Client
 
         public virtual async void ConnectToGame(string uid)
         {
-            await Task.Delay(100); //Wait for initialization to finish
+            await TimeTool.Delay(100); //Wait for initialization to finish
 
             if (!TcgNetwork.Get().IsActive())
                 return; //Not connected to server
@@ -547,6 +556,34 @@ namespace TcgEngine.Client
             Card attacker = game_data.GetCard(msg.attacker_uid);
             Player target = game_data.GetPlayer(msg.target_id);
             onAttackPlayerEnd?.Invoke(attacker, target);
+        }
+
+        private void OnCardDamaged(SerializedData sdata)
+        {
+            MsgCardValue msg = sdata.Get<MsgCardValue>();
+            Card card = game_data.GetCard(msg.card_uid);
+            onCardDamaged?.Invoke(card, msg.value);
+        }
+
+        private void OnPlayerDamaged(SerializedData sdata)
+        {
+            MsgPlayerValue msg = sdata.Get<MsgPlayerValue>();
+            Player player = game_data.GetPlayer(msg.player_id);
+            onPlayerDamaged?.Invoke(player, msg.value);
+        }
+
+        private void OnCardHealed(SerializedData sdata)
+        {
+            MsgCardValue msg = sdata.Get<MsgCardValue>();
+            Card card = game_data.GetCard(msg.card_uid);
+            onCardHealed?.Invoke(card, msg.value);
+        }
+
+        private void OnPlayerHealed(SerializedData sdata)
+        {
+            MsgPlayerValue msg = sdata.Get<MsgPlayerValue>();
+            Player player = game_data.GetPlayer(msg.player_id);
+            onPlayerHealed?.Invoke(player, msg.value);
         }
 
         private void OnAbilityTrigger(SerializedData sdata)

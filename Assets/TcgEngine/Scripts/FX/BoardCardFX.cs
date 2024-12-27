@@ -34,6 +34,7 @@ namespace TcgEngine.FX
             GameClient client = GameClient.Get();
             client.onCardMoved += OnMove;
             client.onCardPlayed += OnPlayed;
+            client.onCardDamaged += OnCardDamaged;
             client.onAttackStart += OnAttack;
             client.onAttackPlayerStart += OnAttackPlayer;
             client.onAbilityStart += OnAbilityStart;
@@ -47,6 +48,8 @@ namespace TcgEngine.FX
         {
             GameClient client = GameClient.Get();
             client.onCardMoved -= OnMove;
+            client.onCardPlayed -= OnPlayed;
+            client.onCardDamaged -= OnCardDamaged;
             client.onAttackStart -= OnAttack;
             client.onAttackPlayerStart -= OnAttackPlayer;
             client.onAbilityStart -= OnAbilityStart;
@@ -190,6 +193,15 @@ namespace TcgEngine.FX
             }
         }
 
+        private void OnCardDamaged(Card target, int damage)
+        {
+            Card card = bcard.GetCard();
+            if (card.uid == target.uid && damage > 0)
+            {
+                DamageFX(bcard.transform, damage);
+            }
+        }
+
         private void OnAttack(Card attacker, Card target)
         {
             Card card = bcard.GetCard();
@@ -205,10 +217,6 @@ namespace TcgEngine.FX
                     //Card charge into target
                     ChargeInto(btarget);
 
-                    //Show Damage Number FX on self
-                    if(!attacker.HasStatus(StatusType.Intimidate))
-                        DamageFX(target, attacker, transform);
-
                     //Attack FX and Audio
                     GameObject fx = icard.attack_fx != null ? icard.attack_fx : AssetData.Get().card_attack_fx;
                     FXTool.DoSnapFX(fx, transform);
@@ -222,15 +230,6 @@ namespace TcgEngine.FX
                         FXTool.DoFX(ecard.CardData.attack_fx, transform.position);
                         AudioTool.Get().PlaySFX("card_attack_equip", ecard.CardData.attack_audio);
                     }
-                }
-            }
-
-            if (card.uid == target.uid)
-            {
-                if (target.CardData.IsCharacter() || card == target)
-                {
-                    //Show Damage Number FX on self
-                    DamageFX(attacker, target, transform);
                 }
             }
 
@@ -250,9 +249,6 @@ namespace TcgEngine.FX
 
                 ChargeIntoPlayer(zone);
 
-                int value = bcard.GetCard().GetAttack();
-                DamageFX(zone.transform, value);
-
                 AudioClip audio = icard?.attack_audio != null ? icard.attack_audio : AssetData.Get().card_attack_audio;
                 AudioTool.Get().PlaySFX("card_attack", audio);
 
@@ -263,16 +259,6 @@ namespace TcgEngine.FX
                     FXTool.DoFX(ecard.CardData.attack_fx, transform.position);
                     AudioTool.Get().PlaySFX("card_attack_equip", ecard.CardData.attack_audio);
                 }
-            }
-        }
-
-        private void DamageFX(Card attacker, Card target, Transform target_trans, float delay = 0.5f)
-        {
-            if (!target.HasStatus(StatusType.Invincibility))
-            {
-                int value = attacker.GetAttack();
-                value = Mathf.Max(value - target.GetStatusValue(StatusType.Armor), 0);
-                DamageFX(target_trans, value, delay);
             }
         }
 

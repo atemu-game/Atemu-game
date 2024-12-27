@@ -38,6 +38,11 @@ namespace TcgEngine.Gameplay
         public UnityAction<Card, Player> onAttackPlayerStart;
         public UnityAction<Card, Player> onAttackPlayerEnd;
 
+        public UnityAction<Card, int> onCardDamaged;
+        public UnityAction<Card, int> onCardHealed;
+        public UnityAction<Player, int> onPlayerDamaged;
+        public UnityAction<Player, int> onPlayerHealed;
+
         public UnityAction<Card, Card> onSecretTrigger;    //Secret, Triggerer
         public UnityAction<Card, Card> onSecretResolve;    //Secret, Triggerer
 
@@ -817,6 +822,8 @@ namespace TcgEngine.Gameplay
             Player aplayer = game_data.GetPlayer(attacker.player_id);
             if (attacker.HasStatus(StatusType.LifeSteal))
                 aplayer.hp += value;
+
+            onPlayerDamaged?.Invoke(target, value);
         }
 
         //Heal a card
@@ -830,6 +837,8 @@ namespace TcgEngine.Gameplay
 
             target.damage -= value;
             target.damage = Mathf.Max(target.damage, 0);
+
+            onCardHealed?.Invoke(target, value);
         }
 
         public virtual void HealPlayer(Player target, int value)
@@ -839,6 +848,8 @@ namespace TcgEngine.Gameplay
 
             target.hp += value;
             target.hp = Mathf.Clamp(target.hp, 0, target.hp_max);
+
+            onPlayerHealed?.Invoke(target, value);
         }
 
         //Generic damage that doesnt come from another card
@@ -854,6 +865,8 @@ namespace TcgEngine.Gameplay
                 return; //Spell immunity
 
             target.damage += value;
+
+            onCardDamaged?.Invoke(target, value);
 
             if (target.GetHP() <= 0)
                 DiscardCard(target);
@@ -900,6 +913,9 @@ namespace TcgEngine.Gameplay
 
             //Remove sleep on damage
             target.RemoveStatus(StatusType.Sleep);
+
+            //Callback
+            onCardDamaged?.Invoke(target, value);
 
             //Deathtouch
             if (value > 0 && attacker.HasStatus(StatusType.Deathtouch) && target.CardData.type == CardType.Character)

@@ -106,7 +106,7 @@ namespace TcgEngine.UI
             {
                 username_txt.text = user.username;
                 credits_txt.text = GameUI.FormatNumber(user.coins);
-
+                
                 AvatarData avatar = AvatarData.Get(user.avatar);
                 this.avatar.SetAvatar(avatar);
 
@@ -173,7 +173,7 @@ namespace TcgEngine.UI
             string uid = GameTool.GenerateRandomID();
             GameClient.game_settings.game_type = type;
             GameClient.game_settings.game_mode = mode;
-            StartGame(uid);
+            StartGame(uid); 
         }
 
         public void StartGame(GameType type, string game_uid, string server_url = "")
@@ -236,6 +236,7 @@ namespace TcgEngine.UI
                 FadeToScene("LoginMenu");
                 return;
             }
+
             UserDeckData deck = deck_selector.GetDeck();
             if (deck == null || !deck.IsValid())
                 return;
@@ -272,7 +273,7 @@ namespace TcgEngine.UI
         {
             JoinCodePanel.Get().Show();
         }
-
+        
         public void OnClickCancelMatch()
         {
             GameClientMatchmaker.Get().StopMatchmaking();

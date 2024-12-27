@@ -45,7 +45,6 @@ namespace TcgEngine.Client
         private float timer = 0f;
         private float status_alpha_target = 0f;
         private float delayed_damage_timer = 0f;
-        private int delayed_damage = 0;
         private int prev_hp = 0;
 
         private bool back_to_hand;
@@ -284,20 +283,8 @@ namespace TcgEngine.Client
         {
             if (damage != 0)
             {
-                delayed_damage = damage;
                 delayed_damage_timer = duration;
             }
-        }
-
-        public int GetDelayedHP()
-        {
-            Game game = GameClient.Get().GetGameData();
-            Card card = GetCard();
-            if (delayed_damage_timer > 0f && game.IsInDiscard(card))
-                return delayed_damage; //Dead
-            if (delayed_damage_timer > 0f)
-                return card.GetHP(delayed_damage);
-            return card.GetHP();
         }
 
         public bool IsDamagedDelayed()

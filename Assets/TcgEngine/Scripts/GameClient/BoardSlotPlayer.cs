@@ -40,6 +40,7 @@ namespace TcgEngine.Client
 
         private void Start()
         {
+            GameClient.Get().onPlayerDamaged += OnPlayerDamaged;
             GameClient.Get().onAbilityStart += OnAbilityStart;
             GameClient.Get().onAbilityTargetPlayer += OnAbilityEffect;
 
@@ -117,6 +118,23 @@ namespace TcgEngine.Client
                     AudioTool.Get().PlaySFX("fx", iability.target_audio);
                 }
             }
+        }
+
+        private void OnPlayerDamaged(Player target, int damage)
+        {
+            if (GetPlayerID() == target.player_id && damage > 0)
+            {
+                DamageFX(transform, damage);
+            }
+        }
+
+        private void DamageFX(Transform target, int value, float delay = 0.5f)
+        {
+            TimeTool.WaitFor(delay, () =>
+            {
+                GameObject fx = FXTool.DoFX(AssetData.Get().damage_fx, target.position);
+                fx.GetComponent<DamageFX>().SetValue(value);
+            });
         }
 
         private Transform GetFXSource(Card caster)

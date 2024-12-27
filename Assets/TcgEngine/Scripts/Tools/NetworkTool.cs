@@ -130,7 +130,7 @@ namespace TcgEngine
                 int size = 0;
                 serializer.SerializeValue(ref size);
                 array = new T[size];
-                for (int i = 0; i < size; i++)
+                for(int i=0; i<size; i++)
                 {
                     T val = new T();
                     serializer.SerializeValue(ref val);
@@ -173,7 +173,7 @@ namespace TcgEngine
 
         public static byte[] SerializeString(string data)
         {
-            if (data != null)
+            if(data != null)
                 return System.Text.Encoding.UTF8.GetBytes(data);
             return new byte[0];
         }
@@ -483,12 +483,12 @@ namespace TcgEngine
 
         public static ushort Hash16(string string_id)
         {
-            return (ushort)string_id.GetHashCode();
+            return (ushort) string_id.GetHashCode();
         }
 
         public static uint Hash32(string string_id)
         {
-            return (uint)string_id.GetHashCode();
+            return (uint) string_id.GetHashCode();
         }
 
         public static ulong Hash64(string string_id)
@@ -500,7 +500,7 @@ namespace TcgEngine
             id = id | (uint)s2.GetHashCode();
             return id;
         }
-
+		
         public static IPAddress ResolveDns(string url)
         {
 #if !UNITY_WEBGL
@@ -520,7 +520,6 @@ namespace TcgEngine
             if (success)
                 return address.ToString(); //Already an IP
             IPAddress ip = ResolveDns(host); //Not an IP, resolve DNS
-            Debug.Log(ip.ToString());
             if (ip != null)
                 return ip.ToString();
             return "";

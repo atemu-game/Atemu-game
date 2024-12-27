@@ -96,6 +96,11 @@ namespace TcgEngine.Server
             gameplay.onAttackPlayerStart += OnAttackPlayerStart;
             gameplay.onAttackPlayerEnd += OnAttackPlayerEnd;
 
+            gameplay.onCardDamaged += OnCardDamaged;
+            gameplay.onPlayerDamaged += OnPlayerDamaged;
+            gameplay.onCardHealed += OnCardHealed;
+            gameplay.onPlayerHealed += OnPlayerHealed ;
+
             gameplay.onSecretTrigger += OnSecretTriggered;
             gameplay.onSecretResolve += OnSecretResolved;
         }
@@ -125,6 +130,8 @@ namespace TcgEngine.Server
             gameplay.onAttackEnd -= OnAttackEnd;
             gameplay.onAttackPlayerStart -= OnAttackPlayerStart;
             gameplay.onAttackPlayerEnd -= OnAttackPlayerEnd;
+            gameplay.onCardDamaged -= OnCardDamaged;
+            gameplay.onPlayerDamaged -= OnPlayerDamaged;
 
             gameplay.onSecretTrigger -= OnSecretTriggered;
             gameplay.onSecretResolve -= OnSecretResolved;
@@ -782,6 +789,38 @@ namespace TcgEngine.Server
             mdata.target_id = target.player_id;
             mdata.damage = 0;
             SendToAll(GameAction.AttackPlayerEnd, mdata, NetworkDelivery.Reliable);
+        }
+
+        protected virtual void OnCardDamaged(Card card, int damage)
+        {
+            MsgCardValue mdata = new MsgCardValue();
+            mdata.card_uid = card.uid;
+            mdata.value = damage;
+            SendToAll(GameAction.CardDamaged, mdata, NetworkDelivery.Reliable);
+        }
+
+        protected virtual void OnPlayerDamaged(Player player, int damage)
+        {
+            MsgPlayerValue mdata = new MsgPlayerValue();
+            mdata.player_id = player.player_id;
+            mdata.value = damage;
+            SendToAll(GameAction.PlayerDamaged, mdata, NetworkDelivery.Reliable);
+        }
+
+        protected virtual void OnCardHealed(Card card, int hp)
+        {
+            MsgCardValue mdata = new MsgCardValue();
+            mdata.card_uid = card.uid;
+            mdata.value = hp;
+            SendToAll(GameAction.CardHealed, mdata, NetworkDelivery.Reliable);
+        }
+
+        protected virtual void OnPlayerHealed(Player player, int hp)
+        {
+            MsgPlayerValue mdata = new MsgPlayerValue();
+            mdata.player_id = player.player_id;
+            mdata.value = hp;
+            SendToAll(GameAction.PlayerHealed, mdata, NetworkDelivery.Reliable);
         }
 
         protected virtual void OnAbilityStart(AbilityData ability, Card caster)

@@ -27,6 +27,7 @@ namespace TcgEngine.UI
         [Header("Bottom bar")]
         public GameObject buttons_area;
         public GameObject account_button;
+        public GameObject sell_button;
 
         [Header("Avatars")]
         public UIPanel avatar_panel;
@@ -121,7 +122,8 @@ namespace TcgEngine.UI
                 cards_all.text = user.CountUniqueCards() + " / " + CardData.GetAllDeckbuilding().Count;
 
                 buttons_area?.SetActive(IsYou());    //Buttons like logout only active if your account
-                // account_button?.SetActive(Authenticator.Get().IsApi());
+                account_button?.SetActive(Authenticator.Get().IsApi());
+                sell_button?.SetActive(Authenticator.Get().IsApi());
             }
         }
 
@@ -240,6 +242,11 @@ namespace TcgEngine.UI
         public void OnClickFriends()
         {
             FriendPanel.Get().Show();
+        }
+
+        public void OnClickDuplicates()
+        {
+            SellDuplicatePanel.Get().Show();
         }
 
         public void OnClickEdit()

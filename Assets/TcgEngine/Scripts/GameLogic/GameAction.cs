@@ -48,9 +48,13 @@ namespace TcgEngine
         public const ushort CardMoved = 2027;
 
         public const ushort AttackStart = 2030;
-        public const ushort AttackEnd = 2032;
-        public const ushort AttackPlayerStart = 2034;
-        public const ushort AttackPlayerEnd = 2036;
+        public const ushort AttackEnd = 2031;
+        public const ushort AttackPlayerStart = 2032;
+        public const ushort AttackPlayerEnd = 2033;
+        public const ushort CardDamaged = 2036;
+        public const ushort PlayerDamaged = 2037;
+        public const ushort CardHealed = 2038;
+        public const ushort PlayerHealed = 2039;
 
         public const ushort AbilityTrigger = 2040;
         public const ushort AbilityTargetCard = 2042;

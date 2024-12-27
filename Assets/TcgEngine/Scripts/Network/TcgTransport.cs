@@ -9,6 +9,13 @@ namespace TcgEngine
 
     public class TcgTransport : MonoBehaviour
     {
+        //[Header("Client")]
+        //[TextArea] public string chain;
+
+        //[Header("Server")]
+        //[TextArea] public string cert;
+        //[TextArea] public string key;         //Set this on server only
+
         private UnityTransport transport;
 
         private const string listen_all = "0.0.0.0";
@@ -22,12 +29,14 @@ namespace TcgEngine
         {
             transport.ConnectionData.ServerListenAddress = listen_all;
             transport.SetConnectionData(listen_all, port);
+            //transport.SetServerSecrets(cert, key);
         }
 
         public virtual void SetClient(string address, ushort port)
         {
             string ip = NetworkTool.HostToIP(address);
             transport.SetConnectionData(ip, port);
+            //transport.SetClientSecrets(address, chain);
         }
 
         public virtual string GetAddress() { return transport.ConnectionData.Address; }
