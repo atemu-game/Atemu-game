@@ -78,7 +78,10 @@ namespace TcgEngine.UI
             if (card_image != null)
                 card_image.sprite = card.GetFullArt(variant);
             if (title_image != null)
+            {
+                title_image.enabled = card.GetFullTitleArt(variant) != null;
                 title_image.sprite = card.GetFullTitleArt(variant);
+            }
             if (frame_image != null)
                 frame_image.sprite = variant.frame;
             if (card_title != null)
@@ -138,11 +141,6 @@ namespace TcgEngine.UI
                     class_bg.SetActive(false);
                 }
             }
-
-
-
-
-
             if (rarity_icon != null)
             {
                 rarity_icon.sprite = card.rarity.icon;

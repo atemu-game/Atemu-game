@@ -88,9 +88,9 @@ namespace TcgEngine.Client
             matchmaking = true;
             match_timer = 0f;
             timer = 0f;
-
             Connect(NetworkData.Get().url, NetworkData.Get().port, (bool success) =>
             {
+
                 if (success)
                 {
                     SendMatchRequest(false, group, nb_players);
@@ -118,7 +118,7 @@ namespace TcgEngine.Client
         {
             Connect(NetworkData.Get().url, NetworkData.Get().port, (bool success) =>
             {
-                if(success)
+                if (success)
                     SendMatchmakingListRequest();
             });
         }
@@ -132,10 +132,10 @@ namespace TcgEngine.Client
             });
         }
 
-        public void Connect(string url, ushort port, UnityAction<bool> callback=null)
+        public void Connect(string url, ushort port, UnityAction<bool> callback = null)
         {
             //Must be logged in to API to connect
-            if(!Authenticator.Get().IsSignedIn())
+            if (!Authenticator.Get().IsSignedIn())
             {
                 callback?.Invoke(false);
                 return;

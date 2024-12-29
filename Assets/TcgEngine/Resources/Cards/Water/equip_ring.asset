@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: equip_ring
   title: Mana Ring
-  art_full: {fileID: 21300000, guid: d2daf6c62360a9f48bfffed30762e9c9, type: 3}
-  art_board: {fileID: 21300000, guid: 4b1ee82a1a5b95e41ba3bb3d8322b771, type: 3}
+  art_full: {fileID: 21300000, guid: fdea0542686ae5e4a807832405cb7465, type: 3}
+  art_board: {fileID: 21300000, guid: 5acbc0cc059d49a4daf19ffb063cbc26, type: 3}
+  art_title: {fileID: 0}
   type: 50
   team: {fileID: 11400000, guid: ed6dfd9dc7797584994eaf1fba66535f, type: 2}
   rarity: {fileID: 11400000, guid: 72248f07232412e4db2f6864dbb4e271, type: 2}
+  cardClass: {fileID: 0}
   mana: 1
   attack: 0
   hp: 3

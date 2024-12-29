@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dc9fcaed7d5274a8381edb4e206a92, type: 3}
   m_Name: NetworkData
   m_EditorClassIdentifier: 
-  url: 167.71.208.154
+  url: 167.172.89.45
   port: 1234
   api_url: api.tcgengine.com
   api_https: 1
