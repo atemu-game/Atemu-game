@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TCGGameCard.sln"
+    "dotnet.defaultSolution": "Atemu-game.sln"
 }
