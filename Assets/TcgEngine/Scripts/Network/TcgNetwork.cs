@@ -121,6 +121,7 @@ namespace TcgEngine
             connection.username = auth.Username;
             network.NetworkConfig.ConnectionData = NetworkTool.NetSerialize(connection);
             offline_mode = false;
+            Debug.Log("StartClient" + transport.GetAddress());
             network.StartClient();
         }
 

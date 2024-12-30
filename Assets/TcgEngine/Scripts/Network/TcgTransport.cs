@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode.Transports.UTP;
+using Unity.Networking.Transport.Relay;
 using UnityEngine;
 
 namespace TcgEngine
@@ -9,12 +10,12 @@ namespace TcgEngine
 
     public class TcgTransport : MonoBehaviour
     {
-        [Header("Client")]
-        [TextArea] public string chain;
+        // [Header("Client")]
+        // [TextArea] public string chain;
 
-        [Header("Server")]
-        [TextArea] public string cert;
-        [TextArea] public string key;         //Set this on server only
+        // [Header("Server")]
+        // [TextArea] public string cert;
+        // [TextArea] public string key;         //Set this on server only
 
         private UnityTransport transport;
 
@@ -29,14 +30,24 @@ namespace TcgEngine
         {
             transport.ConnectionData.ServerListenAddress = listen_all;
             transport.SetConnectionData(listen_all, port);
-            transport.SetServerSecrets(cert, key);
+            // transport.SetServerSecrets(cert, key);
+
         }
 
         public virtual void SetClient(string address, ushort port)
         {
-            string ip = NetworkTool.HostToIP(address);
+            // string ip = NetworkTool.HostToIP(address);
+            string ip = "127.0.0.1";
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+            System.Net.IPAddress[] addresses = System.Net.Dns.GetHostAddresses(address);
+            ip = addresses[0].ToString();
+#endif
+            Debug.Log(ip + " " + address);
             transport.SetConnectionData(ip, port);
-            transport.SetClientSecrets(address, chain);
+            transport.SetClientSecrets(address);
+            Debug.Log("SetClientSecrets " + address);
+
         }
 
         public virtual string GetAddress() { return transport.ConnectionData.Address; }
