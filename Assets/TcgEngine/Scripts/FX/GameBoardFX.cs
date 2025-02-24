@@ -68,6 +68,13 @@ namespace TcgEngine.FX
         private void OnSecret(Card secret, Card triggerer)
         {
             CardData icard = CardData.Get(secret.card_id);
+            int player_id = GameClient.Get().GetPlayerID();
+
+            GameObject prefab = player_id == secret.player_id ? AssetData.Get().play_card_fx : AssetData.Get().play_card_other_fx;
+            GameObject obj = FXTool.DoFX(prefab, Vector3.zero);
+            CardUI ui = obj.GetComponentInChildren<CardUI>();
+            ui.SetCard(icard, secret.VariantData);
+
             if (icard?.attack_audio != null)
                 AudioTool.Get().PlaySFX("card_secret", icard.attack_audio);
         }
