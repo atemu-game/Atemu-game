@@ -11,6 +11,10 @@ namespace TcgEngine.UI
 
     public class LoginMenu : MonoBehaviour
     {
+        [Header("Connect Wallet")]
+        public UIPanel connect_panel;
+
+
         [Header("Login")]
         public UIPanel login_panel;
         public InputField login_user;
@@ -45,24 +49,25 @@ namespace TcgEngine.UI
         private void Start()
         {
             AudioTool.Get().PlayMusic("music", music);
-            BlackPanel.Get().Show(true);
+            // BlackPanel.Get().Show(true);
+            connect_panel.Show();
             error_msg.text = "";
-            test_area.SetActive(Authenticator.Get().IsTest());
+            // test_area.SetActive(Authenticator.Get().IsTest());
 
-            string user = PlayerPrefs.GetString("tcg_last_user", "");
-            login_user.text = user;
+            // string user = PlayerPrefs.GetString("tcg_last_user", "");
+            // login_user.text = user;
 
-            if (Authenticator.Get().IsTest())
-            {
-                login_password.gameObject.SetActive(false);
-                login_bottom.SetActive(false);
-            }
-            else if (!string.IsNullOrEmpty(user))
-            {
-                SelectField(login_password);
-            }
+            // if (Authenticator.Get().IsTest())
+            // {
+            //     login_password.gameObject.SetActive(false);
+            //     login_bottom.SetActive(false);
+            // }
+            // else if (!string.IsNullOrEmpty(user))
+            // {
+            //     SelectField(login_password);
+            // }
 
-            RefreshLogin();
+            // RefreshLogin();
         }
 
         void Update()
