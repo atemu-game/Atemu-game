@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TcgEngine.Client;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System;
 
 namespace TcgEngine.UI
 {
@@ -29,6 +32,18 @@ namespace TcgEngine.UI
         private bool starting = false;
 
         private static MainMenu instance;
+
+        [DllImport("__Internal")]
+        private static extern void HandleClearSessionButton();
+
+        public void ReceiveSignOutData(string jsonData)
+        {
+            if (string.IsNullOrWhiteSpace(jsonData))
+            {
+                return;
+            }
+            ClearData();
+        }
 
         void Awake()
         {
@@ -104,7 +119,7 @@ namespace TcgEngine.UI
             UserData user = await Authenticator.Get().LoadUserData();
             if (user != null)
             {
-                username_txt.text = user.username;
+                username_txt.text = TextTruncation.TruncateText(user.username, 30, "...", 10); ;
                 credits_txt.text = GameUI.FormatNumber(user.coins);
 
                 AvatarData avatar = AvatarData.Get(user.avatar);
@@ -304,6 +319,29 @@ namespace TcgEngine.UI
         }
 
         public void OnClickLogout()
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+         FetchDisconnect();
+#else
+            ClearData();
+#endif
+        }
+
+        public async Task FetchDisconnect()
+        {
+            try
+            {
+                // var response = await UserServices.Logout();
+                // if (!response.success) { NotificationUI.Instance.ShowNotification("Failed to disconnect"); return; }
+                HandleClearSessionButton();
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
+            }
+        }
+
+        private void ClearData()
         {
             TcgNetwork.Get().Disconnect();
             Authenticator.Get().Logout();
